@@ -8,104 +8,35 @@
     	<meta name="author" content="Developpement Web Entreprise 64">
     	<meta name="keywords" content="association, phénix, pheonix, légion, légion du phénix jeux de rôle, roliste, convention, jeux, anglet, pays, basque, 64">
         <title>{% block title %}La l&eacute;gion du ph&eacute;nix{% endblock %}</title>
-        
-        <link rel="icon" href="bootstrap-4.1.3/site/favicon.ico">
-    	<link href="bootstrap-4.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    	<link rel="stylesheet" href="bootstrap-4.1.3/dist/css/mise_en_page_generale.css">
-    	<link rel="stylesheet" href="bootstrap-4.1.3/dist/css/mise_en_page_section_index.css">
+        <link rel='icon' href='{{ absolute_url(asset("/img/faviconLdp.png")) }}'/>
         {% block stylesheets %}
-        
+        	{% include ('css.html.twig') %}
         {% endblock %}
-        <script src="bootstrap-4.1.3/site/docs/assets/js/src/ie-emulation-modes-warning.js"></script>
+        
     </head>
     <body id="body">
-     {# block body #}
-     {% block body %}
-     {% endblock %}
-     {% block titrePage %}
      
-     {% endblock %}
-		<header class="container" id="header">
-			<div id="encadreTitre">
-				<a href="index.php"><img src="/../img/titre.png" id="titre"/></a>
-			</div>
-		</header>
-		<nav class="navbar navbar-inverse navbar-fixed-top" id="menu">
-			<ul id="tableMenu">
-				<li id="ligneMenu"><a href="index.php" id="lienMenuAccueil">Accueil</a></li>
-				<li id="ligneMenu"><a href="activite.php" id="lienMenuPresentation">Nos activit&eacute;s</a></li>
-				<li id="ligneMenu"><a href="tarif.php" id="lienMenuTarif">Nos tarifs</a></li>
-				<li id="ligneMenu"><a href="contact.php" id="lienMenuContact">Nous contacter</a></li>
-			</ul>
-		</nav>
-		<section class="container" id="sectionIndex">
-			<aside class="container" id="article1">
-				<div id="paragrapheDescription1">
-					<h1>Pr&eacute;sentation :</h1>
-						<p>L'association "La L&eacute;gion Du Ph&eacute;nix", est une association <a href="">loi 1901</a> &agrave; but non lucratif, et bas&eacute;e sur Anglet (pour nous contacter c'est <a href="contact.php">ici</a>).</p>
-						<p>Notre activit&eacute; principale est le jeu de r&ocirc;le, dans une ambiance conviviale, dynamique, et soud&eacute;e.</p>
-					<h1>Qu'est-ce que le "Jeu de R&ocirc;le"?</h1>
-						<h2>- <a href="http://www.ffjdr.org">Pour la f&eacute;d&eacute;ration fran&ccedil;aise de jeu de r&ocirc;le</a> :</h2>
-							<p>Le jeu de r&ocirc;le est une activit&eacute; de loisir et de divertissement qui consiste &agrave; raconter une histoire &agrave; plusieurs. Install&eacute;s autour d'une table, les joueurs interpr&egrave;tent le r&ocirc;le d'un personnage au sein d'un univers fictif. Chacun d&eacute;crit comment son personnage interagit avec le monde et les personnages qui l'entourent.</p>
-							<p>Pour plus d'informations sur la d&eacute;finition officielle, je vous invite &agrave; faire un tour sur le site de la <a href="http://www.ffjdr.org/quest-ce-que-le-jeu-de-role/">f&eacute;d&eacute;ration fran&ccedil;aise de jeu de r&ocirc;le</a>.</p> 
-						<h2>- Pour notre association :</h2>
-							<p>Il s'agit pour nous d'un moment o&ugrave; l'on peut se rencontrer et passer des moments entre amis, s'amuser, rigoler, et prendre du plaisir &agrave; incarner nos personnages de films, s&eacute;ries, manga, litt&eacute;rature favorie.</p>
-							<p>Cela nous permet aussi d'explorer de mani&egrave;re fictive, des univers aussi riches et vari&eacute;s.</p>
-							<p>En d&eacute;finitif, il s'agit d'un loisir o&ugrave; chacun peut s'amuser et se d&eacute;tendre en partageant aussi avec d'autres ce plaisir.</p>
-				</div>
-			</aside>
-			<aside class="container" id="article2">
-				<h1>O&ugrave; nous retrouvons nous?</h1>
-				<div id="maisonPourTous">
-					<div id="paragrapheDescription2">
-						<h2>- La <a href="http://www.angletaccueille.com/">Maison Pour Tous</a> d'Anglet:</h2>
-							<p>Chaque samedi de 14h &agrave; 18h dans la salle "Irun" de la <a href="http://www.angletaccueille.com/">maison pour tous</a>, except&eacute; le mois d'a&ocirc;ut, o&ugrave; la <a href="http://www.angletaccueille.com/">maison pour tous</a> est ferm&eacute;e pour vacances annuelle.</p>
-							<p>Pour plus d'informations sur la mani&egrave;re de nous rencontrer, cliquez <a href="contact.php">ici</a></p>
-					</div>
-					<div id="photoArticle">
-						<a href="http://www.angletaccueille.com/"><img src="/../img/maison-pour-tous-anglet.jpg" id="Mpd"/></a>
-					</div>
-				</div>
-				<div id="mariaPia">
-					<div id="paragrapheDescription2">
-						<h2>- Au <a href="https://mvcpolobeyris.fr/">Maison de la vie citoyenne Polo Beyris</a> &agrave; Bayonne</h2>
-							<p>Chaque samedi de 20h &agrave; 2h du matin, except&eacute; le mois d'a&ocirc;ut et pendant les vacances scolaires, o&ugrave; la <a href="https://mvcpolobeyris.fr/">MVC Polo Beyris</a> est ferm&eacute;.</p>
-							<p>Pour plus d'informations sur la mani&egrave;re de nous rencontrer, cliquez <a href="contact.php">ici</a></p>
-					</div>
-					<div id="mariaPiaImg">
-						<a href="https://www.mariapia.fr/"><img src="/../img/MVC.jpg" id="Mpd"/></a>
-					</div>
-				</div>
-			</aside>
-		</section>
-		<footer class="container" id="footer">
-			<div id="logoAssoEtFacebook">
-				<a href="https://www.facebook.com/LaLegionDuPhenix"><img src="/../img/logoFBNB.png" id="logo"/></a>
-			</div>
-			<div id="menuFooter">	
-				<nav class="navbar navbar-inverse navbar-fixed-top" id="navFooter">
-					<ul>
-						<li><a href="index.php">Accueil</a></li>
-						<li><a href="activite.php" >Nos activit&eacute;s</a></li>
-						<li><a href="tarif.php">Nos tarifs</a></li>
-						<li><a href="contact.php">Nous contacter</a></li>
-					</ul>
-				</nav>
-			</div>
-			<div id="logoConcepteur">
-				<div id="encadrerLogoDwe64">
-					<a href="https://dwe64.com/"><img src="/../img/logoDWE64.png" id="logoDWE64"/></a>
-				</div>
-			</div>
-		</footer>
-		
-	   
-       {# endblock #}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    	<script>window.jQuery || document.write('<script src="bootstrap-4.1.3/site/docs/assets/js/vendor/jquery.min.js"><\/script>')</script>
-    	<script src="../../dist/js/bootstrap.min.js"></script>
+     {% block body %}
+     	{% block header %}
+     		{% include('header.html.twig') %}
+     	{% endblock %}
+     	<div class="container-fluid my-auto">
+     	<div class="row justify-content-center">
+     	{% block menu %}
+     		{% include('nav.html.twig') %}
+     	{% endblock %}
+     	
+     	{% block section %}
+     	{% endblock %}
+     	</div>
+     	</div>
+     	{% block footer %}
+     		{% include('footer.html.twig') %}
+     	{% endblock %}
+     
         {% block javascripts %}
-        
+       		 {% include ('js.html.twig') %}
+        {% endblock %}
         {% endblock %}
     </body>
 </html>

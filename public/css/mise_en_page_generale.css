@@ -1,0 +1,268 @@
+@CHARSET "ISO-8859-1";
+
+
+@font-face {
+font-family: "Pieces of Eight";
+src: local("Pieces of Eight"), url("Pieces_of_Eight.ttf");
+format ("truetype");
+}
+
+@font-face {
+font-family: "nosferatu";
+src: local("nosferatu"), url("nosferatu.ttf");
+format ("truetype");
+}
+
+@font-face {
+font-family: "NosferatuIt";
+src: local("NosferatuIt"), url("NosferatuIt.ttf");
+format ("truetype");
+}
+
+@media screen and (max-width:2560px){ 
+	#body{
+	background-color:#a63b51;
+	background-image:url(/../img/flamme.png);
+	/*background-image:url(/lalegionduphenix/img/fondPage.png);*/
+	background-size:contain;
+	/*background-repeat:no-repeat;*/
+	width:100%;
+	max-width:100%;
+	padding:0 0 0 0;
+	font-family:"nosferatu";
+	}
+	
+	section{
+		/*background-image:url(/lalegionduphenix/img/epee.png);*/
+		background-image:url(/../img/epee.png);
+		background-size:contain;
+		background-repeat: no-repeat;
+		background-position:50% 50%;
+		background-attachment:fixed;
+		
+		
+	}
+	
+	/*==============================================================
+							mise en page header
+	
+	================================================================*/
+	
+	
+	/*==============================================================
+							mise en page menu
+	
+	================================================================*/
+	
+	
+	#ligneMenu{
+		
+		/*border:1px solid black;*/
+		height:150px;
+		font-size:18pt;
+		background-image:url(/../img/desNetJaune2.png);
+		/*background-image:url(/lalegionduphenix/img/desNetJaune2.png);*/
+		background-size:contain;
+		background-repeat:no-repeat;
+		background-position-x:center;
+		background-position-y:center;
+		padding:0 0 0 0;
+	}
+	#lienMenuAccueil{
+		color:black;
+		font-weight:bolder;
+		
+	}
+	#lienMenuPresentation{
+		color:black;
+		font-weight:bolder;
+	}
+	#lienMenuTarif{
+		color:black;
+		font-weight:bolder;
+	}
+	#lienMenuContact{
+		color:black;
+		font-weight:bolder;
+	}
+	#ligneMenu a:hover{
+		text-decoration:underline;
+	}
+	/*==============================================================
+							mise en page footer
+	
+	================================================================*/
+	
+	footer a{
+	color:black;
+	font-size:14pt;
+	}
+	
+}
+@media screen and (max-width:1440px){ 
+	/*==============================================================
+							mise en page header
+	
+	================================================================*/
+	
+	/*==============================================================
+							mise en page menu
+	
+	================================================================*/
+	
+	#ligneMenu{
+		
+		height:125px;
+		font-size:16pt;
+	}
+	
+	/*==============================================================
+							mise en page footer
+	
+	================================================================*/
+	
+		
+	
+}
+@media screen and (max-width:1199px){ 
+	/*==============================================================
+							mise en page header
+	
+	================================================================*/
+	
+	/*==============================================================
+							mise en page menu
+	
+	================================================================*/
+	
+	#ligneMenu{
+		
+		height:100px;
+		font-size:15pt;
+		
+	}
+	
+	
+	/*==============================================================
+							mise en page footer
+	
+	================================================================*/
+	
+		
+}
+@media screen and (max-width:1024px){ 
+	/*==============================================================
+							mise en page header
+	
+	================================================================*/
+	
+	/*==============================================================
+							mise en page menu
+	
+	================================================================*/
+	
+	
+	/*==============================================================
+							mise en page footer
+	
+	================================================================*/
+	
+		
+	
+}
+@media screen and (max-width:768px){ 
+	/*==============================================================
+							mise en page header
+	
+	================================================================*/
+	
+	/*==============================================================
+							mise en page menu
+	
+	================================================================*/
+	
+	
+	
+	/*==============================================================
+							mise en page footer
+	
+	================================================================*/
+	
+	
+}
+@media screen and (max-width:425px){ 
+	/*==============================================================
+							mise en page header
+	
+	================================================================*/
+	
+	/*==============================================================
+							mise en page menu
+	
+	================================================================*/
+	
+	
+	#ligneMenu{
+		
+		height:90px;
+		
+	}
+	
+	
+	
+	/*==============================================================
+							mise en page footer
+	
+	================================================================*/
+	
+	
+	
+}
+@media screen and (max-width:375px){ 
+	/*==============================================================
+							mise en page header
+	
+	================================================================*/
+	
+	/*==============================================================
+							mise en page menu
+	
+	================================================================*/
+	
+	#ligneMenu{
+		height:80px;
+	}
+	
+	
+	/*==============================================================
+							mise en page footer
+	
+	================================================================*/
+	
+	
+	
+}
+@media screen and (max-width:320px){ 
+	
+	/*==============================================================
+							mise en page header
+	
+	================================================================*/
+
+	
+	
+	
+	/*==============================================================
+							mise en page menu
+	
+	================================================================*/
+	
+	#ligneMenu{
+		
+		height:75px;
+		
+	}
+	
+	
+	
+}

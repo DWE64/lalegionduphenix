@@ -13,7 +13,7 @@ class AccueilController extends AbstractController
     public function index()
     {
         $message="Page Accueil";
-        return $this->render('accueil/index.html.twig', [
+        return $this->render('site/accueil.html.twig', [
             'titrePage' => $message,
         ]);
     }

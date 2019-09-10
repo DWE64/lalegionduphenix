@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block section %}
+
+		<div class="col-xl-10 col-lg-10 col-md-9 col-sm-12 ">
+		
+		<section class="container-fluid " >
+		{% block titrePage %}
+			<h1>{{ titrePage }}</h1>
+        {% endblock %}
+        <div class="row justifiy-content-center ">
+			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 ">
+			<aside class="container-fluid">
+				<div class="row">
+				<div class="col-12" id="paragrapheDescriptionTarif">
+					<h1 class="mt-2 mb-3">Nos tarifs:</h1>
+						<p class="mb-0">- Notre cotisation annuelle s'&eacute;l&egrave;ve &agrave; <strong>30&euro;</strong> pour l'acc&egrave;s &agrave; tous nos locaux.</p>
+						<p class="mb-0">- Toute personne d&eacute;sireuse de tester nos activit&eacute;s disposera de <strong>3 s&eacute;ances d'essais</strong>.</p>
+					</div>
+				</div>
+				<div class="row">
+				<div class="col-12" id="paragrapheDescriptionTarif">
+					<h2 class="mt-4 mb-3">Les pr&eacute;-requis pour s'inscrire:</h2>
+						<p class="mb-0">- Toute personne souhaitant s'inscrire dans notre association, devra au minimum avoir 15 ans r&eacute;volus.</p>
+				</div>
+				</div>
+				<div class="row">
+				<div class="col-12" id="paragrapheDescriptionTarif">
+					<h2 class="mt-4 mb-3">Documents utiles:</h2>
+						<p class="mb-0">- Fiche d'inscription &agrave; t&eacute;l&eacute;charger en cliquant <a href="{{ absolute_url(asset("/doc/ficheInscription.pdf")) }}">ici</a></p>
+						<p class="mb-0">- R&egrave;glement int&eacute;rieur de l'association &agrave; t&eacute;l&eacute;charger en cliquant <a href="{{ absolute_url(asset("/doc/RI.pdf")) }}">ici</a></p>
+				</div>
+				</div>
+				</div>
+			</aside>
+			</div>
+			<div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 ">
+			</div>
+		</div>
+		</section>
+		</div>
+		
+{% endblock %}
+
+
+
+

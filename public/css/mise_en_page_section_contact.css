@@ -1,0 +1,114 @@
+@CHARSET "ISO-8859-1";
+@media screen and (max-width:2560px){ 
+	
+	#coordonnee{
+		
+		/*color: hsla(43,89%,40%, 0.651);*/
+		font-size:12px;
+		font-weight:100;
+		font-style:italic;
+	}
+	
+	#paragrapheDescriptionContact h1{
+		font-size:40px;
+		font-style:italic;
+		text-decoration:underline;
+		font-weight:bold;
+	}
+	#paragrapheDescriptionContact p{
+		font-size:24px;
+	}
+	#paragrapheDescriptionContact a{
+		color:black;
+		font-weight:bold;
+	}
+	
+	.map-responsive {
+overflow:hidden;
+padding-bottom:56.25%;
+position:relative;
+height:0;
+}
+
+.map-responsive iframe {
+left:0;
+top:0;
+height:100%;
+width:100%;
+max-width:100%;
+position:absolute;
+}
+	
+	
+	
+}
+@media screen and (max-width:1440px){ 
+	
+	#paragrapheDescriptionContact h1{
+		font-size:34px;
+		
+	}
+	#paragrapheDescriptionContact p{
+		font-size:20px;
+	}
+	
+	
+}
+@media screen and (max-width:1199px){ 
+	
+	#paragrapheDescriptionContact h1{
+		font-size:32px;
+		
+	}
+	#paragrapheDescriptionContact p{
+		font-size:18px;
+	}
+	
+	
+}
+@media screen and (max-width:1024px){ 
+	
+	#paragrapheDescriptionContact p{
+		font-size:16px;
+	}
+	
+}
+@media screen and (max-width:768px){ 
+	
+	
+}
+@media screen and (max-width:425px){ 
+	
+	#coordonnee{
+		font-size:14px;
+	}
+	
+	#paragrapheDescriptionContacth1{
+		font-size:32px;
+	}
+	#paragrapheDescriptionContact p{
+		font-size:18px;
+	}
+	
+	
+}
+@media screen and (max-width:375px){ 
+	#paragrapheDescriptionContact h1{
+		font-size:30px;
+		
+	}
+	#paragrapheDescriptionContact p{
+		font-size:17px;
+	}
+
+		
+}
+@media screen and (max-width:320px){ 
+	
+	#paragrapheDescriptionContact h1{
+		font-size:24px;
+	}
+	#paragrapheDescriptionContact p{
+		font-size:16px;
+	}
+}

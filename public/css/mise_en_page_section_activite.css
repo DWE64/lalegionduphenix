@@ -1,0 +1,312 @@
+@CHARSET "ISO-8859-1";
+
+
+@media screen and (max-width:2560px){ 
+	#sectionActivite{
+		float:left;
+		max-width:100%;
+		width:80%;
+		height:auto;
+		/*border: 1px dashed green;*/
+		margin-left:20%;
+		padding: 0 0 0 0;
+		/*background-image:url(/lalegionduphenix/img/epee.png);*/
+		background-image:url(/../img/epee.png);
+		background-size:contain;
+		background-repeat: no-repeat;
+		background-position:65% 85%;
+		background-attachment:fixed;
+		
+		
+	}
+	#asideJdr{
+		max-width:100%;
+		width:100%;
+		padding:0 0 0 0;
+		height:auto;
+		/*border: 1px dashed blue;*/
+		margin-bottom:5%;
+		margin-top:4%;
+	}
+	#asideJdr h1{
+		font-size:36px;
+		font-weight:bold;
+		font-style:italic;
+		text-decoration:underline;
+	}
+	#listeJdr{
+		width:100%;
+		max-width:100%;
+		padding:0 0 0 0;
+		/*border: 1px dashed green;*/
+		overflow-y:scroll;
+		height:625px;
+	}
+	#jdr{
+		width:100%;
+		max-width:100%;
+		height:auto;
+		float:left;
+	}
+	#photoJdr{
+		max-width:100%;
+		width:15%;
+		float:left;
+		/*border: 1px dashed blue;*/
+		margin-top:3%;
+	}
+	#imgJdr{
+		width:100%;
+		max-width:100%;
+	}
+	#paragrapheDescription{
+		/*border: 1px dashed black;*/
+		max-width:100%;
+		width:70%;
+		float:left;
+		padding:0 0 0 0;
+		margin-top:3%;
+		height:250px;
+	}
+	#paragrapheDescription h2{
+		/*border: 1px dashed white;*/
+		text-align:left;
+		font-weight:bold;
+		text-decoration:underline;
+		font-style:italic;
+		font-size:24px;
+	}
+	#paragrapheDescription p{
+		/*border: 1px dashed yellow;*/
+		width:100%;
+		max-width:100%;
+		padding-left:5%;
+		margin-bottom:0%;		
+		font-size:20px;
+	}
+	#asideEvenement{
+		max-width:100%;
+		width:100%;
+		padding:0 0 0 0;
+		height:auto;
+		/*border: 1px dashed blue;*/
+	}
+	#asideEvenement h1{
+		font-size:36px;
+		font-weight:bold;
+		font-style:italic;
+		text-decoration:underline;
+	}
+	#listeEvent{
+		width:100%;
+		max-width:100%;
+		padding:0 0 0 0;
+		/*border: 1px dashed green;*/
+		overflow-y:scroll;
+		height:600px;
+	}
+	#event{
+		width:100%;
+		max-width:100%;
+		height:auto;
+		float:left;
+	}
+	#photoEvent{
+		max-width:100%;
+		width:15%;
+		float:left;
+		/*border: 1px dashed blue;*/
+		margin-top:3%;
+	}	
+}
+@media screen and (max-width:1440px){ 
+	
+	#asideJdr h1{
+		font-size:34px;
+	}
+	#listeJdr{
+		height:575px;
+	}
+	#photoJdr{
+		width:15%;
+	}
+	#paragrapheDescription{
+		width:80%;
+		height:250px;
+		overflow-y:scroll;
+	}
+	#asideEvenement h1{
+		font-size:34px;
+	}
+	#listeEvent{
+		height:575px;
+	}
+	#photoEvent{
+		width:15%;
+	}
+}
+@media screen and (max-width:1199px){ 
+	#asideJdr h1{
+		font-size:32px;
+	}
+	#listeJdr{
+		height:600px;
+	}
+	#photoJdr{
+		margin-top:3%;
+	}
+	#paragrapheDescription{
+		margin-top:3%;
+		height:250px;
+	}
+	#paragrapheDescription h2{
+		font-size:26px;
+	}
+	#paragrapheDescription p{
+		font-size:22px;
+	}
+	#asideEvenement h1{
+		font-size:32px;
+	}
+	#listeEvent{
+		height:550px;
+	}
+	#photoEvent{
+		margin-top:3%;
+	}	
+}
+@media screen and (max-width:1024px){ 
+	#asideJdr h1{
+		font-size:30px;
+	}
+	#listeJdr{
+		height:500px;
+	}
+	#photoJdr{
+		width:20%;
+	}
+	#paragrapheDescription{
+		height:200px;
+	}
+	#paragrapheDescription h2{
+		font-size:24px;
+	}
+	#paragrapheDescription p{
+		font-size:20px;
+	}
+	#asideEvenement h1{
+		font-size:30px;
+	}
+	#listeEvent{
+		height:400px;
+	}
+	#photoEvent{
+		width:20%;
+	}	
+}
+@media screen and (max-width:768px){ 
+	#sectionActivite{
+		width:80%;
+		margin-left:20%;		
+	}
+	#asideJdr h1{
+		font-size:28px;
+	}
+	#listeJdr{
+		height:375px;
+	}
+	#paragrapheDescription{
+		height:150px;
+	}
+	#paragrapheDescription h2{
+		font-size:22px;
+	}
+	#paragrapheDescription p{
+		font-size:18px;
+	}
+	#asideEvenement h1{
+		font-size:28px;
+	}
+	#listeEvent{
+		height:375px;
+	}
+}
+@media screen and (max-width:425px){ 
+	#sectionActivite{
+		width:100%;
+		margin-left:0%;
+	}
+	#asideJdr h1{
+		font-size:26px;
+	}
+	
+	#paragrapheDescription{
+		height:160px;
+	}
+	#paragrapheDescription h2{
+		font-size:20px;
+	}
+	#paragrapheDescription p{
+		font-size:16px;
+	}
+	
+	#asideEvenement h1{
+		font-size:26px;
+	}
+	
+}
+@media screen and (max-width:375px){ 
+	#paragrapheDescription{
+		height:140px;
+	}
+	#paragrapheDescription h2{
+		font-size:19px;
+	}
+	#paragrapheDescription p{
+		font-size:15px;
+	}
+}
+@media screen and (max-width:320px){ 
+	#sectionActivite{
+		width:100%;
+		height:auto;
+		margin-left:0%;
+	}
+	#asideJdr h1{
+		font-size:24px;
+	}	
+	
+	#listeJdr{
+		height:250px;
+	}
+	
+	#photoJdr{
+		width:30%;
+		margin-top:4%;
+	}
+	#paragrapheDescription{
+		width:70%;
+		margin-top:4%;
+		height:120px;
+	}
+	#paragrapheDescription h2{
+		font-size:18px;
+	}
+	#paragrapheDescription p{
+		font-size:14px;
+	}
+	#asideEvenement{
+	}
+	#asideEvenement h1{
+		font-size:24px;
+	}
+	#listeEvent{
+		height:250px;
+	}
+	#event{
+	}
+	#photoEvent{
+		width:30%;
+		margin-top:4%;
+	}
+}

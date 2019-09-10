@@ -1,0 +1,26 @@
+{% block menu %}
+       
+       
+       <div class="col-xl-2 col-lg-2 col-md-3 col-sm-12 mb-auto">
+        <!-- <nav class="navbar navbar-inverse navbar-fixed-top" id="menu">-->
+        <nav class="navbar navbar-expand-lg mt-2 mb-2 ml-2 mr-2 justify-content-center " >
+        <!-- <a class="navbar-brand" href="#">La L&eacute;gion du Ph&eacute;nix</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavigation" aria-controls="menuNavigation" aria-expanded="false" aria-label="Toggle navigation">
+        	<span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuNavigation">-->
+        <ul class="navbar-nav flex-column justify-content-center text-center"id="tableMenu">
+        <div class="row align-items-center justify-content-center text-center">
+				<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 py-xl-5 py-lg-4 py-md-4 py-3" id="ligneMenu"><a class="nav-link" href={{"/accueil"}} id="lienMenuAccueil">Accueil</a></li>
+				<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 py-xl-5 py-lg-4 py-md-4 py-3" id="ligneMenu"><a class="nav-link" href={{"/activite"}} id="lienMenuPresentation">Nos activit&eacute;s</a></li>
+				<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 py-xl-5 py-lg-4 py-md-4 py-3" id="ligneMenu"><a class="nav-link" href={{"/tarif"}} id="lienMenuTarif">Nos tarifs</a></li>
+				<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 py-xl-5 py-lg-4 py-md-4 py-3" id="ligneMenu"><a class="nav-link" href={{"/contact"}} id="lienMenuContact">Nous contacter</a></li>
+			</div>
+			</ul>
+        
+        <!-- </div>-->
+			
+		</nav>
+		</div>
+		
+{% endblock %}

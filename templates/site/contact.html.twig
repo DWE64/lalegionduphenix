@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block section %}
+
+		
+		<div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
+		<section class="container-fluid" id="sectionContact">
+		{% block titrePage %}
+			<h1>{{ titrePage }}</h1>
+        {% endblock %}
+        <div class="row justifiy-content-center">
+			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+			<div class="row">
+				<div class="col-12">
+			<aside class="container-fluid" id="coordonnee">
+				<div class="row justifiy-content-center my-3">
+					<div class="col-12">
+						<div class="row" id="paragrapheDescriptionContact">
+						<h1 class="col-12 mt-2 mb-3">* Maison Pour Tous D'anglet:</h1>
+							<div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 col-12 text-center">
+								<p class="mb-0">Horaires d'ouverture: 14h-18h</p>
+								<p class="mb-0">Contact t&eacute;l&eacute;phone: 06.66.69.15.57</p>
+								<p class="mb-0">Pour acceder &agrave; notre forum, cliquez <a href="http://lalegionduphenix.forumprod.com">ici</a></p>					
+							</div>
+							<div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-12">
+								<a href="http://www.angletaccueille.com/"><img class="imf-fluid rounded" src="{{ absolute_url(asset("/img/maison-pour-tous-anglet.jpg")) }}" id="Mpd"/></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row justify-content-center my-3">
+					<div class="col-12">
+						<div class="row" id="paragrapheDescriptionContact">
+						<h1 class="col-12 mt-2 mb-3">* Maison de la vie citoyenne Polo Beyris:</h1>
+							<div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 col-12 text-center">
+								<p class="mb-0">28 Avenue de l'Ursuya</p>
+								<p class="mb-0">64100 - BAYONNE</p>
+								<p class="mb-0">Horaires d'ouverture: 20h-2h</p>
+								<p class="mb-0">Contact t&eacute;l&eacute;phone: 06.66.69.15.57</p>
+								<p class="mb-0">Pour acceder &agrave; notre forum, cliquez <a href="http://lalegionduphenix.forumprod.com">ici</a></p>					
+							</div>
+							<div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-12">
+					<!-- <a href="https://www.mariapia.fr/"><img src="/lalegionduphenix/img/mariaPia.jpg" id="Mpd"/></a>-->
+								<a href="https://mvcpolobeyris.fr/"><img class="img-fluid rounded" src="{{ absolute_url(asset("/img/MVC.jpg")) }}"/></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+			</div>			
+			<div class="col-12">
+			<aside class="container-fluid " id="carteGoogle">
+				<div class="map-responsive" id="affichageCarte">
+					
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2047.0223731116482!2d-1.514303420961198!3d43.48299792972747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5140052eef8f15%3A0xc2e89d48d574293e!2s6+Rue+Albert+le+Barillier%2C+64600+Anglet!5e0!3m2!1sfr!2sfr!4v1534453047568" width="800" height="600" frameborder="0" style="border:0" id="carteIframe" allowfullscreen></iframe>				
+					
+				</div>
+			</aside>
+			</div>
+			<div class="col-12 my-4">
+			<aside class="container-fluid" id="asideFormulaireContact">
+				<div class="row justify-content-center" id="formulaireContact">
+    				<form role="form" action="gestionPHP/mail.php" method="POST">
+						<div class="form-group">
+							<label class="sr-only" for="nom">Nom</label>
+							<input type="text" class="form-control" placeholder="Nom" name="nom" id="nom"/>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="mail">Mail</label>
+							<input type="email" class="form-control" placeholder="Email" name="mail" id="email"/>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="telephone">Tel</label>
+							<input type="tel"  class="form-control" placeholder="Telephone" name="telephone" id="tel"/>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="sujet">Sujet</label>
+							<input type="text" class="form-control" placeholder="Votre sujet" name="sujet" id="sujet"/>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="message" >Message</label>
+							<textarea placeholder="Votre message" class="form-control" name="message" id="msg" rows="10" cols="50"></textarea> 
+						</div>
+						<div class="form-group">
+							<input id="boutonEnvoyer" class="btn btn-light" type="submit" value="Envoyer" name="Envoyer"/>
+						</div>
+					</form>
+				</div>
+			</aside>
+			</div>
+			</div>
+			</div>
+			<div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">
+			</div>
+		</div>
+		</section>
+		</div>
+{% endblock %}
+
+
+
+
