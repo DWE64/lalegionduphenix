@@ -2,7 +2,7 @@
 
 {% block section %}
 
-		<div class="col-xl-10 col-lg-10 col-md-9 col-sm-12 border border-primary">
+		<div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
 		
 		<section class="container-fluid" id="sectionActivite">
 		{% block titrePage %}
@@ -10,210 +10,399 @@
         {% endblock %}
         <div class="row justifiy-content-center">
 			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
-			<aside class="container" id="asideJdr">
-				<h1>Les diff&eacute;rents jeux de r&ocirc;les propos&eacute;s :</h1>
-				<div id="listeJdr">
-					
-					<div id="jdr">
-						<div id="photoJdr">
+			<aside class="container-fluid my-3" id="asideJdr">
+			<div class="row justify-content-center">
+				<h1 class="col-12 text-left my-4">Les diff&eacute;rents jeux de r&ocirc;les propos&eacute;s :</h1>
+				 	<div class="col-12">
+				 	<div class="row">
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
 							<!-- <img src="/lalegionduphenix/img/jdr/anima.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/anima.jpg"))}}" id="imgJdr"/>
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/anima.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controles="collapse1">
+									Anima: Beyond Fantasy
+								</button>
+							</h5>
 						</div>
-						<div id="paragrapheDescription">
-							<h2>Anima: Beyond Fantasy</h2>
-								<p>"Et l'homme oublia. Personne ne peut dire pourquoi cela arrive, ni comment. Il s'agit peut-&ecirc;tre du d&eacute;cha&icirc;nement d'un ph&eacute;nom&egrave;ne naturel qui effa&ccedil;a nos souvenirs, ou alors nous transgress&acirc;me une loi d'une puissance inconnue qui nous ch&acirc;tia pour cela. Ou alors, simplement, l'homme se le fit &agrave; lui-m&ecirc;me.... &Acirc; cette &eacute;poque, le monde avait un autre nom. Mais il ne reste personne qui s'en souvienne..."</p>
-								<p>Anima est un syst&egrave;me de jeu dont l'ambiance s'inspire d'&eacute;l&eacute;ments de sagas fantastiques orientales et occidentales bien connues, tout en se basant sur un fond totalement original.</p>
+						<div id="collapse1" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							
+								<p class="card-text">"Et l'homme oublia. Personne ne peut dire pourquoi cela arrive, ni comment. Il s'agit peut-&ecirc;tre du d&eacute;cha&icirc;nement d'un ph&eacute;nom&egrave;ne naturel qui effa&ccedil;a nos souvenirs, ou alors nous transgress&acirc;me une loi d'une puissance inconnue qui nous ch&acirc;tia pour cela. Ou alors, simplement, l'homme se le fit &agrave; lui-m&ecirc;me.... &Acirc; cette &eacute;poque, le monde avait un autre nom. Mais il ne reste personne qui s'en souvienne..."</p>
+								<p class="card-text">Anima est un syst&egrave;me de jeu dont l'ambiance s'inspire d'&eacute;l&eacute;ments de sagas fantastiques orientales et occidentales bien connues, tout en se basant sur un fond totalement original.</p>
 						</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/cthulhu.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/cthulhu.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>L'appel de Cthulhu</h2>
-								<p>"L'appel de cthulhu vous plonge dans les &eacute;crits et l'univers de l'&eacute;crivain am&eacute;ricain H.P.Lovecraft. Entrez dans la peau d'intr&eacute;pides investigateurs parcourant les ann&eacute;es 20 ... confront&eacute;s &agrave; des secrets ant&eacute;diluviens et &agrave; des cr&eacute;atures que l'esprit peut &agrave; peine appr&eacute;hender...La compr&eacute;hension de la v&eacute;ritable nature de l'Univers vous emm&egrave;nera aux fronti&egrave;res de la folie et, le plus souvent, au-del&agrave;..."</p>
-								<p>L'appel de cthulhu est un jeu de r&ocirc;le d'&eacute;pouvante dans l'univers d'Howard Phillips Lovecraft.</p>
+						</div>	
 						</div>
 					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/dd4.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/dd4.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Dongeon & Dragon: 4&egrave;me &eacute;dition</h2>
-								<p>"Dans un monde fantastique o&ugrave; se m&ecirc;lent magie et monstres, une nouvelle &egrave;re d'aventures s'ouvre &agrave; vous."</p>
-						</div>
-					</div>	
-					<div id="jdr">
-							<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/deadland.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/deadland.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Deadland</h2>
-								<p>"Voil&agrave; 200 ans d&eacute;j&agrave; que la guerre de S&eacute;cession fait rage, et aucun des deux camps ne semble en mesure de prendre l'avantage. Les Etats Conf&eacute;d&eacute;r&eacute;s suivent leurs propre voie, &agrave; l'&eacute;cart des Etats-Unis d'Am&eacute;rique.... On murmure m&ecirc;me que les morts marchent parmi nous..."</p>
-								<p>Deadlands est un jeu m&ecirc; Western et magie, inventions improbables et cr&eacute;atures indicibles, d&eacute;s, jetons et carte de poker...</p>
-						</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/donjonLouforc.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/donjonLouforc.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Donjon Louforcs</h2>
-								<p>"Donjons Louforcs est un jeu d&eacute;cal&eacute; qui caricature les univers m&eacute;di&eacute;vaux-fantastiques classiques de la m&ecirc;me fa&ccedil;on que le Donjon de Naheulbeuk. Il propose d'incarner des monstres, serviteurs du grand Dieu Meujeuh, affrontant dans des donjons les gentils h&eacute;ros envoy&eacute;s par le Dieu Peujeuh. &Agrave; l'origine, les monstres de Meujeuh se veulent l'&eacute;lite des forces obscures. Malheureusement, cette &eacute;lite a sombr&eacute; dans une d&eacute;ch&eacute;ance sans retour, &agrave; force d'exterminations syst&eacute;matiques dans leur rangs par les troupes de Peujeuh."</p>
-								<p> L'esp&eacute;rance de vie d'un monstre face &agrave; un h&eacute;ros &eacute;tant tr&egrave;s faible, chaque joueur se voit confier 3 monstres diff&eacute;rents au d&eacute;but d'une s&eacute;ance. Ainsi, sa pr&eacute;sence jusqu'&agrave; la fin de la partie est assur&eacute;e.</p>
-							</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/hex.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/hex.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Hollow Earth Expedition</h2>
-								<p>"D'abord nous avons d&eacute;couvert que la Terre &eacute;tait ronde. Ensuite, nous avons d&eacute;couvert qu'elle &eacute;tait creuse. Maintenant, nous devons emp&ecirc;cher ses secrets de tomber entre de mauvaises mains"</p>
-								<p>Situ&eacute; dans les ann&eacute;es 1930, tendues et tumultueuses, Hollow Earth Expedition est un jeu d'action inspir&eacute; par les g&eacute;ants litt&eacute;raires que sont Edgar Rice Burroughs, Jules Verne et Sir Arthur Conan Doyle.</p>
-						</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/littleFear.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/littleFear.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Little Fears</h2>
-								<p>"Souvenez-vous de votre enfance. Vous aviez tellement peur de toutes ces choses qui surgissaient la nuit. Vous ne vous &ecirc;tes jamais demand&eacute; o&ugrave; elles &eacute;taient pass&eacute;es?</p>
-								<p>Jeu d'horreur sur les terreurs des enfants.</p>
-						</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/metalAdventure.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/metalAdventure.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Metal Adventure</h2>
-								<p>"Metal Adventures est un jeu de r&ocirc;le de space opera &agrave; tendance cin&eacute;matographique, dans lequel les joueurs incarnent des pirates de l'espace. Il s'inspire autant de Star Wars que de dessins anim&eacute;s comme Albator ou Cobra. Le jeu prend place dans un lointain futur appel&eacute; "le dernier mill&eacute;naire" en raison d'un courant de pens&eacute;e qui estime que l'humanit&eacute; est sur le point de s'autod&eacute;truire."</p>
-							</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/pathfinder.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/pathfinder.jpg"))}}" id="imgJdr"/>
-						</div>
-							<div id="paragrapheDescription">
-						<h2>Pathfinder</h2>
-								<p>"Pathfinder est un syst&egrave;me de jeu de r&ocirc;le m&eacute;di&eacute;val-fantastique g&eacute;n&eacute;rique. Il reprend en grande partie, gr&acirc;ce &agrave; la licence OGL, les r&egrave;gles r&eacute;vis&eacute;es de la troisi&egrave;me &eacute;dition de Donjon & Dragon (3.5)."</p>
-						</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/scion.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/scion.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Scion</h2>
-								<p>"Les effroyables Titans se sont &eacute;vad&eacute;s de leurs prison mill&eacute;naire pour livrer une nouvelle fois la guerre aux dieux. Leurs conflits c&eacute;lestes ont maintenant notre monde pour th&eacute;&acirc;tre d'op&eacute;ration. Dot&eacute;s des armes et pouvoirs de leurs parents divins, les scions constituent le dernier rempart de l'humanit&eacute;."</p>
-						</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/starWars.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/starWars.JPG"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Star Wars: aux confin de l'empire</h2>
-								<p>"Il &eacute;tait une fois, dans une galaxie lointaine, tr&egrave;s lointaine...</p>
-								<p>Un jeu sur l'univers renomm&eacute; de Star Wars.</p>
-						</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/subabysse.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/subabysse.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Subabysse</h2>
-								<p>Un monde comme le n&ocirc;tre, o&ugrave; les terres &eacute;merg&eacute;es repr&eacute;sentent moins de 10 % de la surface, souvent irradi&eacute;e. Des hommes comme nous (atlantes except&eacute;s), plus des mutants consid&eacute;r&eacute;s au mieux comme des esclaves. Une technologie en avance sur la n&ocirc;tre, o&ugrave; la vie sous l'eau est la norme, et les manipulations g&eacute;n&eacute;tiques sont monnaie courante. Une soci&eacute;t&eacute; domin&eacute;e par l'arm&eacute;e et les scientifiques, o&ugrave; les int&eacute;r&ecirc;ts personnels sont indissociables des luttes politiques. Bref, un splendide panier de crabes tant sur le plan physique que relationnel.</p>
-								<p>Un jeu post-apocalyptique dans un univers sub-aquatique...</p>
-						</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/yggdrasil.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/yggdrasil.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Yggdrasil</h2>
-								<p>Les aventures d'Yggdrasill se d&eacute;roulent ainsi dans la Scandia, Scandinavie actuelle, et sur les diff&eacute;rents mondes de la mythologie nordique. Les personnages devront faire face &agrave; leurs destins, une notion importante pour les hommes du Nord. Qu'ils soient simples paysans, scaldes ou v&ouml;lvas &agrave; la grande sagesse, nobles ou guerrier berserkrs, les personnages devront vivre une histoire dont sont faites les sagas.</p>
-								<p>"Par la barbe d'Odin! ..."</p>
-						</div>
-					</div>	
-					<div id="jdr">
-						<div id="photoJdr">
-							<!-- <img src="/lalegionduphenix/img/jdr/zcorps.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/jdr/zcorps.jpg"))}}" id="imgJdr"/>
-						</div>
-						<div id="paragrapheDescription">
-							<h2>Z-corps</h2>
-								<p>"Z-Corps est un jeu d'horreur proposant aux joueurs de faire face &agrave; une apocalypse zombie aux Etats-Unis en 2012."</p>
-								<p>"R&egrave;gle n&ordm;1: AVOIR UN BON CARDIO ! ..."</p>
-						</div>
 					</div>
+					
+					
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/cthulhu.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/cthulhu.jpg"))}}" id="imgJdr"/>
+						
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controles="collapse2">
+								L'appel de Cthulhu
+								</button>
+							</h5>
+						</div>
+						<div id="collapse2" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+								<p class="card-text">"L'appel de cthulhu vous plonge dans les &eacute;crits et l'univers de l'&eacute;crivain am&eacute;ricain H.P.Lovecraft. Entrez dans la peau d'intr&eacute;pides investigateurs parcourant les ann&eacute;es 20 ... confront&eacute;s &agrave; des secrets ant&eacute;diluviens et &agrave; des cr&eacute;atures que l'esprit peut &agrave; peine appr&eacute;hender...La compr&eacute;hension de la v&eacute;ritable nature de l'Univers vous emm&egrave;nera aux fronti&egrave;res de la folie et, le plus souvent, au-del&agrave;..."</p>
+								<p class="card-text">L'appel de cthulhu est un jeu de r&ocirc;le d'&eacute;pouvante dans l'univers d'Howard Phillips Lovecraft.</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>
+					
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/dd4.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/dd4.jpg"))}}" id="imgJdr"/>
+						
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controles="collapse3">
+								Dongeon & Dragon: 4&egrave;me &eacute;dition
+								</button>
+							</h5>
+						</div>
+						<div id="collapse3" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">"Dans un monde fantastique o&ugrave; se m&ecirc;lent magie et monstres, une nouvelle &egrave;re d'aventures s'ouvre &agrave; vous."</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/deadland.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/deadland.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controles="collapse4">
+								Deadland
+								</button>
+							</h5>
+						</div>
+						<div id="collapse4" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">"Voil&agrave; 200 ans d&eacute;j&agrave; que la guerre de S&eacute;cession fait rage, et aucun des deux camps ne semble en mesure de prendre l'avantage. Les Etats Conf&eacute;d&eacute;r&eacute;s suivent leurs propre voie, &agrave; l'&eacute;cart des Etats-Unis d'Am&eacute;rique.... On murmure m&ecirc;me que les morts marchent parmi nous..."</p>
+							<p class="card-text">Deadlands est un jeu m&ecirc; Western et magie, inventions improbables et cr&eacute;atures indicibles, d&eacute;s, jetons et carte de poker...</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>	
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/donjonLouforc.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/donjonLouforc.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controles="collapse5">
+								Donjon Louforcs
+								</button>
+							</h5>
+						</div>
+						<div id="collapse5" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">"Donjons Louforcs est un jeu d&eacute;cal&eacute; qui caricature les univers m&eacute;di&eacute;vaux-fantastiques classiques de la m&ecirc;me fa&ccedil;on que le Donjon de Naheulbeuk. Il propose d'incarner des monstres, serviteurs du grand Dieu Meujeuh, affrontant dans des donjons les gentils h&eacute;ros envoy&eacute;s par le Dieu Peujeuh. &Agrave; l'origine, les monstres de Meujeuh se veulent l'&eacute;lite des forces obscures. Malheureusement, cette &eacute;lite a sombr&eacute; dans une d&eacute;ch&eacute;ance sans retour, &agrave; force d'exterminations syst&eacute;matiques dans leur rangs par les troupes de Peujeuh."</p>
+							<p class="card-text">L'esp&eacute;rance de vie d'un monstre face &agrave; un h&eacute;ros &eacute;tant tr&egrave;s faible, chaque joueur se voit confier 3 monstres diff&eacute;rents au d&eacute;but d'une s&eacute;ance. Ainsi, sa pr&eacute;sence jusqu'&agrave; la fin de la partie est assur&eacute;e.</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>	
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/hex.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/hex.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controles="collapse6">
+								Hollow Earth Expedition
+								</button>
+							</h5>
+						</div>
+						<div id="collapse6" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">"D'abord nous avons d&eacute;couvert que la Terre &eacute;tait ronde. Ensuite, nous avons d&eacute;couvert qu'elle &eacute;tait creuse. Maintenant, nous devons emp&ecirc;cher ses secrets de tomber entre de mauvaises mains"</p>
+							<p class="card-text">Situ&eacute; dans les ann&eacute;es 1930, tendues et tumultueuses, Hollow Earth Expedition est un jeu d'action inspir&eacute; par les g&eacute;ants litt&eacute;raires que sont Edgar Rice Burroughs, Jules Verne et Sir Arthur Conan Doyle.</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>	
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/littleFear.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/littleFear.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controles="collapse7">
+								Little Fears
+								</button>
+							</h5>
+						</div>
+						<div id="collapse7" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">"Souvenez-vous de votre enfance. Vous aviez tellement peur de toutes ces choses qui surgissaient la nuit. Vous ne vous &ecirc;tes jamais demand&eacute; o&ugrave; elles &eacute;taient pass&eacute;es?</p>
+							<p class="card-text">Jeu d'horreur sur les terreurs des enfants.</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>	
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/metalAdventure.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/metalAdventure.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controles="collapse8">
+								Metal Adventure
+								</button>
+							</h5>
+						</div>
+						<div id="collapse8" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">"Metal Adventures est un jeu de r&ocirc;le de space opera &agrave; tendance cin&eacute;matographique, dans lequel les joueurs incarnent des pirates de l'espace. Il s'inspire autant de Star Wars que de dessins anim&eacute;s comme Albator ou Cobra. Le jeu prend place dans un lointain futur appel&eacute; "le dernier mill&eacute;naire" en raison d'un courant de pens&eacute;e qui estime que l'humanit&eacute; est sur le point de s'autod&eacute;truire."</p>
+							</div>
+						</div>	
+						</div>
+					</div>	
+					</div>	
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/pathfinder.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/pathfinder.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controles="collapse9">
+								Pathfinder
+								</button>
+							</h5>
+						</div>
+						<div id="collapse9" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">"Pathfinder est un syst&egrave;me de jeu de r&ocirc;le m&eacute;di&eacute;val-fantastique g&eacute;n&eacute;rique. Il reprend en grande partie, gr&acirc;ce &agrave; la licence OGL, les r&egrave;gles r&eacute;vis&eacute;es de la troisi&egrave;me &eacute;dition de Donjon & Dragon (3.5)."</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>		
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/scion.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/scion.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controles="collapse10">
+								Scion
+								</button>
+							</h5>
+						</div>
+						<div id="collapse10" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">"Les effroyables Titans se sont &eacute;vad&eacute;s de leurs prison mill&eacute;naire pour livrer une nouvelle fois la guerre aux dieux. Leurs conflits c&eacute;lestes ont maintenant notre monde pour th&eacute;&acirc;tre d'op&eacute;ration. Dot&eacute;s des armes et pouvoirs de leurs parents divins, les scions constituent le dernier rempart de l'humanit&eacute;."</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>	
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/starWars.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/starWars.JPG"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controles="collapse11">
+								Star Wars: aux confin de l'empire
+								</button>
+							</h5>
+						</div>
+						<div id="collapse11" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">"Il &eacute;tait une fois, dans une galaxie lointaine, tr&egrave;s lointaine...</p>
+							<p class="card-text">Un jeu sur l'univers renomm&eacute; de Star Wars.</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>		
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/subabysse.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/subabysse.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse12" aria-expanded="false" aria-controles="collapse12">
+								Subabysse
+								</button>
+							</h5>
+						</div>
+						<div id="collapse12" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">Un monde comme le n&ocirc;tre, o&ugrave; les terres &eacute;merg&eacute;es repr&eacute;sentent moins de 10 % de la surface, souvent irradi&eacute;e. Des hommes comme nous (atlantes except&eacute;s), plus des mutants consid&eacute;r&eacute;s au mieux comme des esclaves. Une technologie en avance sur la n&ocirc;tre, o&ugrave; la vie sous l'eau est la norme, et les manipulations g&eacute;n&eacute;tiques sont monnaie courante. Une soci&eacute;t&eacute; domin&eacute;e par l'arm&eacute;e et les scientifiques, o&ugrave; les int&eacute;r&ecirc;ts personnels sont indissociables des luttes politiques. Bref, un splendide panier de crabes tant sur le plan physique que relationnel.</p>
+							<p class="card-text">Un jeu post-apocalyptique dans un univers sub-aquatique...</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>	
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/yggdrasil.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/yggdrasil.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse13" aria-expanded="false" aria-controles="collapse13">
+								Yggdrasil
+								</button>
+							</h5>
+						</div>
+						<div id="collapse13" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">Les aventures d'Yggdrasill se d&eacute;roulent ainsi dans la Scandia, Scandinavie actuelle, et sur les diff&eacute;rents mondes de la mythologie nordique. Les personnages devront faire face &agrave; leurs destins, une notion importante pour les hommes du Nord. Qu'ils soient simples paysans, scaldes ou v&ouml;lvas &agrave; la grande sagesse, nobles ou guerrier berserkrs, les personnages devront vivre une histoire dont sont faites les sagas.</p>
+							<p class="card-text">"Par la barbe d'Odin! ..."</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<!-- <img src="/lalegionduphenix/img/jdr/zcorps.jpg" id="imgJdr"/>-->
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/jdr/zcorps.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapse14" aria-expanded="false" aria-controles="collapse14">
+								Z-corps
+								</button>
+							</h5>
+						</div>
+						<div id="collapse14" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							<p class="card-text">"Z-Corps est un jeu d'horreur proposant aux joueurs de faire face &agrave; une apocalypse zombie aux Etats-Unis en 2012."</p>
+							<p class="card-text">"R&egrave;gle n&ordm;1: AVOIR UN BON CARDIO ! ..."</p>
+						</div>
+						</div>	
+						</div>
+					</div>	
+					</div>
+					
 				</div>			
 			</aside>
-			<aside class="container" id="asideEvenement">
-				<h1>Les diff&eacute;rents &eacute;v&egrave;nements auquels nous participons :</h1>
-				<div id="listeEvent">
-					<div id="event">
-						<div id="photoEvent">
-							<!-- <img src="/lalegionduphenix/img/convention/anglet.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/convention/anglet.jpg"))}}" id="imgJdr"/>
+			<aside class="container-fluid my-3" id="asideEvenement">
+				<div class="row justify-content-center">
+				<h1 class="col-12 text-left my-4">Les diff&eacute;rents &eacute;v&egrave;nements auquels nous participons :</h1>
+				<div class="col-12">
+				 	<div class="row">
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/convention/anglet.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapseEvent1" aria-expanded="false" aria-controles="collapseEvent1">
+								Le Forum des Associations
+								</button>
+							</h5>
 						</div>
-						<div id="paragrapheDescription">
-							<h2>Le Forum des Associations</h2>
-								<p>Organis&eacute; par la mairie d'Anglet, ce forum regroupe une grande partie des associations de la ville d'Anglet.</p>
+						<div id="collapseEvent1" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							
+								<p class="card-text">Organis&eacute; par la mairie d'Anglet, ce forum regroupe une grande partie des associations de la ville d'Anglet.</p>
 						</div>
+						</div>	
+						</div>
+					</div>	
 					</div>
-					<div id="event">
-						<div id="photoEvent">
-							<!-- <img src="/lalegionduphenix/img/convention/rpgers.png" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/convention/rpgers.png"))}}" id="imgJdr"/>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/convention/rpgers.png"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapseEvent2" aria-expanded="false" aria-controles="collapseEvent2">
+								La convention de jeux de r&ocirc;le: RPGers
+								</button>
+							</h5>
 						</div>
-						<div id="paragrapheDescription">
-							<h2>La convention de jeux de r&ocirc;le: RPGers</h2>
-								<p>La plus importante des conventions de jeux de r&ocirc;les du sud-ouest, celle-ci r&eacute;unie un grand nombre de joueurs de diverse association.</p>
-								<p>Celle-ci a lieu dans un petit village du Gers appel&eacute; "Plaisance du Gers" dans une ambiance conviviale et chaleureuse comme dans toute convention r&ocirc;listique.</p>
+						<div id="collapseEvent2" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							
+								<p class="card-text">La plus importante des conventions de jeux de r&ocirc;les du sud-ouest, celle-ci r&eacute;unie un grand nombre de joueurs de diverse association.</p>
+								<p class="card-text">Celle-ci a lieu dans un petit village du Gers appel&eacute; "Plaisance du Gers" dans une ambiance conviviale et chaleureuse comme dans toute convention r&ocirc;listique.</p>
 						</div>
+						</div>	
+						</div>
+					</div>	
 					</div>
-					<div id="event">
-						<div id="photoEvent">
-							<!-- <img src="/lalegionduphenix/img/convention/tdo.jpg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/convention/tdo.jpg"))}}" id="imgJdr"/>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/convention/tdo.jpg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapseEvent3" aria-expanded="false" aria-controles="collapseEvent3">
+								La convention de jeux de r&ocirc;le: Les chroniques des terres d'ouest
+								</button>
+							</h5>
 						</div>
-						<div id="paragrapheDescription">
-							<h2>La convention de jeux de r&ocirc;le: Les chroniques des terres d'ouest</h2>
-								<p>Une convention organis&eacute;e sur 3 jours par l'association de jeux de r&ocirc;le de Tarbes.</p>
-								<p>Une ambiance conviviale et chaleureuse comme dans toute convention r&ocirc;listique.</p>
-								<p></p>
-								<p></p>
+						<div id="collapseEvent3" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							
+								<p class="card-text">Une convention organis&eacute;e sur 3 jours par l'association de jeux de r&ocirc;le de Tarbes.</p>
+								<p class="card-text">Une ambiance conviviale et chaleureuse comme dans toute convention r&ocirc;listique.</p>
 						</div>
+						</div>	
+						</div>
+					</div>	
 					</div>
-					<div id="event">
-						<div id="photoEvent">
-							<!-- <img src="/lalegionduphenix/img/convention/tmt.jpeg" id="imgJdr"/>-->
-							<img src="{{ absolute_url(asset("/img/convention/tmt.jpeg"))}}" id="imgJdr"/>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+					<div class="card-deck col-12 mx-0">
+						<div class="card bg-light border-dark">
+							<img class="card-img-top" src="{{ absolute_url(asset("/img/convention/tmt.jpeg"))}}" id="imgJdr"/>
+						<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+							<h5 class="mb-0 text-center">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapseEvent4" aria-expanded="false" aria-controles="collapseEvent4">
+								La convention de jeux de r&ocirc;le: Troll Me Tender
+								</button>
+							</h5>
 						</div>
-						<div id="paragrapheDescription">
-							<h2>La convention de jeux de r&ocirc;le: Troll Me Tender</h2>
-								<p>Une convention organis&eacute;e sur 3 jours par l'association de jeux de r&ocirc;le de Bordeaux.</p>
-								<p>Une ambiance conviviale et chaleureuse comme dans toute convention r&ocirc;listique.</p>
+						<div id="collapseEvent3" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+						<div class="card-body" id="paragrapheDescription">
+							
+								<p class="card-text">Une convention organis&eacute;e sur 3 jours par l'association de jeux de r&ocirc;le de Bordeaux.</p>
+								<p class="card-text">Une ambiance conviviale et chaleureuse comme dans toute convention r&ocirc;listique.</p>
 						</div>
+						</div>	
+						</div>
+					</div>	
 					</div>
+				</div>
 				</div>
 			</aside>
 			</div>

@@ -20,18 +20,23 @@
      	{% block header %}
      		{% include('header.html.twig') %}
      	{% endblock %}
+     	{% block login %}
      	<div class="container-fluid my-auto">
      	<div class="row justify-content-center">
+     	
+     	
      	{% block menu %}
      		{% include('nav.html.twig') %}
      	{% endblock %}
      	
      	{% block section %}
      	{% endblock %}
+     	
      	</div>
      	</div>
      	{% block footer %}
      		{% include('footer.html.twig') %}
+     	{% endblock %}
      	{% endblock %}
      
         {% block javascripts %}
