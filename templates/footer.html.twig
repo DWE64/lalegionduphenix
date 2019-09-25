@@ -12,7 +12,15 @@
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center "><a class="nav-link" href={{"/activite"}} >Nos activit&eacute;s</a></li>
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center"><a class="nav-link" href={{"/tarif"}}>Nos tarifs</a></li>
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center "><a class="nav-link" href={{"/contact"}}>Nous contacter</a></li>
+						{% if is_granted('ROLE_SUPER_ADMIN') %}
+						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center "><a class="nav-link" href={{"/logout"}}>D&eacute;connexion</a></li>
+						{% elseif is_granted('ROLE_ADMIN') %}
+						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center "><a class="nav-link" href={{"/logout"}}>D&eacute;connexion</a></li>
+						{% elseif is_granted('ROLE_USER') %}
+						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center "><a class="nav-link" href={{"/logout"}}>D&eacute;connexion</a></li>
+						{% else %}
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center "><a class="nav-link" href={{"/login"}}>Panneau administrateur</a></li>
+						{% endif %}
 					</div>
 					</ul>
 				</nav>

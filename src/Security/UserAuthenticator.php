@@ -76,6 +76,7 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator
 
     public function checkCredentials($credentials, UserInterface $user)
     {
+        echo 'information sur id se connectant <br>email : '.$credentials['email'].' / password : '.$credentials['password'].' / token connection : '.$credentials['csrf_token'];
         return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
     }
 

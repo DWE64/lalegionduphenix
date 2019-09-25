@@ -15,8 +15,8 @@ class AccueilAdminController extends AbstractController
     public function indexAdmin()
     {
         // necessaire pour faire le tri sur l'autorisation de connexion. chercher aussi pour SUPER_ADMIN
-        $hasAccess=$this->isGranted('ROLE_ADMIN');
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $hasAccess=$this->isGranted('ROLE_USER');
+        $this->denyAccessUnlessGranted('ROLE_USER');
         
         $messageBienvenu="page de connexion admin reussie!";
         
