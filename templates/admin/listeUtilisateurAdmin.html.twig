@@ -6,13 +6,49 @@
 		
         <div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
 		<section class="container-fluid" >
-		{% block titrePage %}
-			<h1>{{ message }}</h1>
-        {% endblock %}
-        <div class="row justifiy-content-center">
+        	<div class="row justifiy-content-center">
 			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
-				
+			<h1 class="font-weight-bold font-italic text-center">Liste des membres</h1>
+			<aside class="container-fluid mb-5" >
+				<!-- mettre un formulaire de modification ici en selectionnant l'id souhaité et les modification souhaitée -->
+				<div class="row justify-content-center">
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+						{{ form_start(formModifStatut,{'attr':{'novalidate':'novalidate','role':'form'}})}}
+						<div class="form-row my-2 mx-0">
+							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row mx-0">
+							        {{ form_widget(formModifStatut.id) }}
+						            {{ form_widget(formModifStatut.idStatutUser) }}
+						        </div>
+						    </div>
+						</div>
+						
+							
+							    {{ form_widget(formModifStatut.modifier) }}
+							
+						
+						{{ form_end(formModifStatut) }}
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+						{{ form_start(formSup,{'attr':{'novalidate':'novalidate','role':'form'}})}}
+						<div class="form-row my-2 mx-0">
+							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row mx-0">
+							        {{ form_widget(formSup.id) }}
+						        </div>
+						    </div>
+						</div>
+						
+							
+							    {{ form_widget(formSup.supprimer) }}
+							
+						
+						{{ form_end(formSup) }}
+					</div>
+				</div>
+			</aside>
 			<aside class="container-fluid">
+			
 				<div class="row">
 					<div class="col table-responsive">
 						<table class="table table-secondary table-striped table-bordered table-hover table-sm">
@@ -24,9 +60,9 @@
 								</tr>
 							</thead>
 							<tbody>
-							{{  dump(listeUser) }}
+							{#{  dump(listeUser) }#}
 								{% for utilisateur in listeUser %}
-								{{  dump(utilisateur) }}
+								{#{  dump(utilisateur) }#}
 								
 								<tr>
 									<td>{{utilisateur.getId() }}</td>
@@ -39,9 +75,6 @@
 						</table>
 					</div>
 				</div>
-			</aside>
-			<aside class="container-fluid " >
-				<!-- mettre un formulaire de modification ici en selectionnant l'id souhaité et les modification souhaitée -->
 			</aside>
 			</div>
 			<div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">

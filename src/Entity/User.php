@@ -40,11 +40,23 @@ class User implements UserInterface
      */
     private $statut;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $idStatutUser;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+        
+        return $this;
+    }
+    
     public function getEmail(): ?string
     {
         return $this->email;
@@ -74,7 +86,7 @@ class User implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        //$roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
@@ -126,6 +138,18 @@ class User implements UserInterface
     public function setStatut(?string $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getIdStatutUser(): ?int
+    {
+        return $this->idStatutUser;
+    }
+
+    public function setIdStatutUser(?int $idStatutUser): self
+    {
+        $this->idStatutUser = $idStatutUser;
 
         return $this;
     }

@@ -21,7 +21,7 @@ format ("truetype");
 
 @media screen and (max-width:2560px){ 
 	#body{
-	background-color:#a63b51;
+	background-color:#961011;
 	background-image:url(/../img/flamme.png);
 	/*background-image:url(/lalegionduphenix/img/fondPage.png);*/
 	background-size:contain;
@@ -30,6 +30,7 @@ format ("truetype");
 	max-width:100%;
 	padding:0 0 0 0;
 	font-family:"nosferatu";
+	color:black;
 	}
 	
 	section{
