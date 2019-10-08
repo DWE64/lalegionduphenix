@@ -2,14 +2,36 @@
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
-    <h1>Register</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+{% block register %}
+    <div class="container-fluid my-auto">
+    	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+			<h1 class="h1 mb-3 font-weight-bold text-center">S'enregistrer</h1>
+			<aside class="container-fluid " >
+     			<div class="row justify-content-center">
+					<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-5">
+    				    {{ form_start(registrationForm,{'attr':{'novalidate':'novalidate','role':'form'}})}}
+    				    <div class="form-row my-2 mx-0">
+							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row mx-0">
+                                    {{ form_widget(registrationForm.email) }}
+							    </div>
+							</div>
+							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row mx-0">
+						            {{ form_widget(registrationForm.plainPassword) }}
+						    	</div>
+							</div>
+							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row justify-content-center mx-0">
+						            {{ form_row(registrationForm.agreeTerms) }}
+						        </div>
+						    </div>
+						</div>
+        				{{ form_widget(registrationForm.enregistrer) }}
+                    {{ form_end(registrationForm) }}
+    				</div>
+    			</div>
+    		</aside>
+    	</div>
+    </div>
 {% endblock %}

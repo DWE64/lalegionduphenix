@@ -6,9 +6,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\EvenementParticiperRepository")
  */
-class Article
+class EvenementParticiper
 {
     /**
      * @ORM\Id()
@@ -16,29 +16,25 @@ class Article
      * @ORM\Column(type="integer")
      */
     private $id;
-
+    
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $titre;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $sousTitre;
-
+    
     /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
-
+    
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $imgArticle;
+    private $img_event_part;
     
     private $image;
-
+    
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -49,64 +45,53 @@ class Article
         
         return $this;
     }
-
+    
     public function getTitre(): ?string
     {
         return $this->titre;
     }
-
+    
     public function setTitre(?string $titre): self
     {
         $this->titre = $titre;
-
+        
         return $this;
     }
-
-    public function getSousTitre(): ?string
-    {
-        return $this->sousTitre;
-    }
-
-    public function setSousTitre(?string $sousTitre): self
-    {
-        $this->sousTitre = $sousTitre;
-
-        return $this;
-    }
-
+    
     public function getDescription(): ?string
     {
         return $this->description;
     }
-
+    
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
+        
         return $this;
     }
-
-    public function getImgArticle(): ?string
-    {
-        return $this->imgArticle;
-    }
-
-    public function setImgArticle(?string $imgArticle): self
-    {
-        $this->imgArticle = $imgArticle;
-
-        return $this;
-    }
+    
     
     public function getImage()
     {
         return $this->image;
     }
     
+    
+    
+    public function getImgEventPart(): ?string
+    {
+        return $this->img_event_part;
+    }
+    public function setImgEventPart(string $img_event_part): self
+    {
+        $this->img_event_part = $img_event_part;
+        return $this;
+    }
+    
     /**
      *
      * @param UploadedFile $Image
-     * @return \App\Entity\Article
+     * @return \App\Entity\EvenementParticiper
      */
     public function setImage(UploadedFile $Image=null)
     {
