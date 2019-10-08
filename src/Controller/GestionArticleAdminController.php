@@ -13,82 +13,106 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Validator\Constraints\Length;
+use App\Repository\ArticleRepository;
 
 
 
 class GestionArticleAdminController extends AbstractController
 {
     /**
-     * @Route("/admin/gestionArticle", name="gestionArticle")
+     * @Route("/admin/listeArticle", name="listeArticle")
      */
-    public function indexAdmin(Request $request):Response
+    public function indexAdmin(ArticleRepository $articleRepository, EntityManagerInterface $em, Request $request)
     {
-      
+      // fonction permettant l'affichage des articles ET la création d'un nouvel article
        $hasAccess=$this->isGranted('ROLE_ADMIN');
        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         
-       //affichage des différentes activités
-       $listeArticle=GestionArticleAdminController::listeArticle();
        
-       //formulaire d'ajout d'activité
+       $objetArticle=new Article();
        
-       $article=new Article();
-       $formNewArticle=$this->createForm(formulaireArticleType::class, $article,[
-           'action'=>$this->generateUrl('ajout_article'),
-           'method'=>'POST',
-       ]);
+       $formulaireArticle=$this->createForm(formulaireArticleType::class, $objetArticle);
+       $formulaireArticle->handleRequest($request);
        
-       //formulaire de modification d'article
-       
-       
-      $formModifArticle=$this->createForm(ModificationArticle::class, $article,[
-           'action'=>$this->generateUrl('update_article'),
-           'method'=>'POST',
-       ]);
-       
-              
-       //formulaire de suppression d'article
-       
-       
-       $formSupArticle=$this->createForm(SuppressionArticle::class, $article,[
-           'action'=>$this->generateUrl('delete_article'),
-           'method'=>'POST',
-       ]);
-       
-       return  $this->render('admin/gestionArticleAdmin.html.twig',[
-            "listeArticle"=>$listeArticle,
-            "formNewArticle"=>$formNewArticle->createView(),
-            "formModifArticle"=>$formModifArticle->createView(),
-            "formSup"=>$formSupArticle->createView(),
+       if($formulaireArticle->isSubmitted() && $formulaireArticle->isValid()){
+           
+           //ici on récupère et on stock l'image dans le dossier public correspondant au service renseigné dans le service.yaml
+           if($formulaireArticle['image']->getData()!=null){
+               $file=$formulaireArticle['image']->getData();
+               $filename=$this->generateUniqueFileName().'.'.$file->guessExtension();
+               
+               try{
+                   $file->move($this->getParameter('image_article'), $filename);
+                   
+               }catch(FileException $e){
+                   return $e;
+               }
+               $objetArticle->setImage($formulaireArticle['image']->getData());
+               $objetArticle->setImgArticle($filename);
+           }
+           
+           // action : 
+           $em->persist($objetArticle);
+           
+           //envoi à la bdd
+           
+           $em->flush();
+           
+           //message flash
+           $type='info';
+           $message='nouvel article créé';
+           $this->addFlash($type, $message);
+           
+           return $this->redirectToRoute("listeArticle");
+       }
+      return $this->render('admin/article/newArticle.html.twig', [
+          'tableauObjetArticle'=>$articleRepository->findAll(),
+          'formulaireArticle'=>$formulaireArticle->createView(),
         ]);
-    }
-    
-    
+     }
+       
+      
+     /**
+      * @Route("/admin/Article/{id}/delete", name="delete_article")
+      */
+     public function deleteArticle(Article $article, EntityManagerInterface $em){ //ici la fonction récupère l'id de l'article renseignée dans la route appelée dans le fichier twig
+         
+         //on efface le lien d'image s'il y a une image puis on supprime l'image du dossier
+         
+         if($article->getImgArticle()!=null && $article->getImgArticle()!=''){
+             unlink($this->getParameter('image_article').'/'.$article->getImgArticle());
+         }      
+                  
+         //on supprime l'objet article passé en paramètre
+         $em->remove($article);
+         //on dit a la bdd d'effacer l'article en question de la base
+         $em->flush();
+         // on affiche le message de confirmation
+         $type='info';
+         $message='article supprimé';
+         $this->addFlash($type, $message);
+         
+         //on retourne à la liste
+         return $this->redirectToRoute('listeArticle');
+     }
     
     
     /**
-     * 
-     * @Route("/admin/listeArticle", name="listage_article")
+     * @Route("/admin/Article/{id}/edition", name="edit_article")
      */
-    
-    public function listeArticle(){
-          $articleListe=$this->getDoctrine()->getRepository(Article::class)->findAll();
-                    
-          return $articleListe;
-    }
-    
-    /**
-     * @Route("/admin/ajoutArticle", name="ajout_article")
-     */
-    public function newArticle(Request $request){
-        $article=new Article();
-        $formulaireModif=$this->createForm(formulaireArticleType::class, $article);
+    public function updateArticle(Article $article, EntityManagerInterface $em, Request $request){ //ici on récupère l'id passé en paramètre et la réponse au formulaire de modification
         
+        //on crée le formulaire de modif a partir du même formulaire que celui de création d'article
+        $formulaireModif=$this->createForm(formulaireArticleType::class, $article);
         $formulaireModif->handleRequest($request);
         
         if($formulaireModif->isSubmitted() && $formulaireModif->isValid()){
-            if($article->getImage()!=null){
-                $file=$article->getImage();
+            // on check si l'image est modifiée. si oui, on supprime le lien de l'ancienne, on supprime l'image du dossier, et on enregistre la nouvelle
+            if($formulaireModif['image']->getData()!=null){
+                if($article->getImgArticle()!=null && $article->getImgArticle()!=''){
+                    unlink($this->getParameter('image_article').'/'.$article->getImgArticle());
+                }
+                $file=$formulaireModif['image']->getData();
                 $filename=$this->generateUniqueFileName().'.'.$file->guessExtension();
                 
                 try{
@@ -97,94 +121,30 @@ class GestionArticleAdminController extends AbstractController
                 }catch(FileException $e){
                     return $e;
                 }
-                
+                $article->setImage($formulaireModif['image']->getData());
                 $article->setImgArticle($filename);
+                
             }
-            
-            $entityManager =$this->getDoctrine()->getManager();
-            $entityManager->persist($article);
-            $entityManager->flush();
-            
-            
-            return $this->redirectToRoute('gestionArticle');
-            
+            $em->flush();
+        
+            return $this->redirectToRoute('listeArticle');
         }
-        return $this->redirectToRoute('gestionArticle');
+        return $this->render('admin/article/editArticle.html.twig',[
+            'formulaireEdit'=>$formulaireModif->createView(),
+            'idArticle'=>$article->getId(),
+        ]);
     }
     
-    /**
-     * @Route("/admin/modifArticle", name="update_article")
-     */
-    public function updateArticle(Request $request){
-        $article=new Article();
-        $formulaireModif=$this->createForm(ModificationArticle::class, $article);
-        
-        $formulaireModif->handleRequest($request);
-        
-        if($formulaireModif->isSubmitted() && $formulaireModif->isValid()){
-        $entityManager=$this->getDoctrine()->getManager();
-        $articleTrouve=$entityManager->getRepository(Article::class)->find($article->getId());
-        
-        if(!$articleTrouve){
-            throw $this->createNotFoundException('aucun jeu a modifier avec cet identifiant: '.$article->getId());
-        }
-        
-        if($article->getTitre()!='' && $article->getTitre()!=null){
-            $articleTrouve->setTitre($article->getTitre());
-        }
-        if($article->getSousTitre()!='' && $article->getSousTitre()!=null){
-            $articleTrouve->setSousTitre($article->getSousTitre());
-        }
-        if($article->getDescription()!='' && $article->getDescription()!=null){
-            $articleTrouve->setDescription($article->getDescription());
-        }
-        if($article->getImage()!=null){
-            if($articleTrouve->getImgArticle()!=null && $articleTrouve->getImgArticle()!=''){
-                unlink($this->getParameter('image_article').'/'.$articleTrouve->getImgArticle());
-            }
-            $file=$article->getImage();
-            $filename=$this->generateUniqueFileName().'.'.$file->guessExtension();
-            
-            try{
-                $file->move($this->getParameter('image_article'), $filename);
-                
-            }catch(FileException $e){
-                return $e;
-            }
-            
-            $articleTrouve->setImgArticle($filename);
-            
-        }
-                
-        $entityManager->flush();
-        
-        return $this->redirectToRoute('gestionArticle');
-        }
-        return $this->redirectToRoute('gestionArticle');
-    }
     
     /**
-     * @Route("/admin/supprimerArticle", name="delete_article")
+     * @Route("admin/Article/{id}", name="visualisation_article")
      */
-    public function deleteArticle(Request $request){
-        $article=new Article();
-        $formulaireSup=$this->createForm(SuppressionArticle::class, $article);
-        $formulaireSup->handleRequest($request);
+   
+    public function viewArticle(Article $article, $id){
         
-        
-        if($formulaireSup->isSubmitted() && $formulaireSup->isValid()){
-            $entityManager=$this->getDoctrine()->getManager();
-            $articleSup=$entityManager->getRepository(Article::class)->find($article->getId());
-            if(!$articleSup){
-                throw $this->createNotFoundException('aucun article a supprimer avec cet identifiant: '.$article->getId());
-            }
-            unlink($this->getParameter('image_article').'/'.$articleSup->getImgArticle());
-            $entityManager->remove($articleSup);
-            $entityManager->flush();
-            
-            return $this->redirectToRoute('gestionArticle');
-        }
-        return $this->redirectToRoute('gestionArticle');
+        return $this->render('admin/article/viewArticle.html.twig', [
+           'article'=>$article 
+        ]);
         
     }
     

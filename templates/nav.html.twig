@@ -7,14 +7,14 @@
 			        <div class="row align-items-center justify-content-center text-center">
 			        {% if is_granted('ROLE_SUPER_ADMIN') %}
 			        	<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/accueilAdmin"}} id="lienMenuAccueil">Accueil Admin</a></li>
-						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/gestionArticle"}} id="lienMenuPresentation">Gestion des pages</a></li>
+						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/listeArticle"}} id="lienMenuPresentation">Gestion des pages</a></li>
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/gestionActivite"}} id="lienMenuTarif">Gestion des activit&eacute;s</a></li>
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/gestionEvenementParticiper"}} id="lienMenuTarif">Gestion des &eacute;v&egrave;nements Particip&eacute;s</a></li>
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/listeMembre"}} id="lienMenuContact">Utilisateurs</a></li>
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/boiteMail"}} id="lienMenuContact">Messages</a></li>
 			        {% elseif is_granted('ROLE_ADMIN') %}
 			       		<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/accueilAdmin"}} id="lienMenuAccueil">Accueil Admin</a></li>
-						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/gestionArticle"}} id="lienMenuPresentation">Gestion des pages</a></li>
+						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/listeArticle"}} id="lienMenuPresentation">Gestion des pages</a></li>
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/gestionActivite"}} id="lienMenuTarif">Gestion des activit&eacute;s</a></li>
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/gestionEvenementParticiper"}} id="lienMenuTarif">Gestion des &eacute;v&egrave;nements Particip&eacute;s</a></li>
 						<li class="nav-item col-xl-12 col-lg-12 col-md-12 col-sm-6 col-6 btn btn-light btn-outline-dark"><a class="nav-link" href={{"/admin/boiteMail"}} id="lienMenuContact">Messages</a></li>
