@@ -30,7 +30,7 @@ class Jeu
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $img_jeu;
+    private $imgJeu;
     
     private $image;
     
@@ -80,11 +80,11 @@ class Jeu
     
     public function getImgJeu(): ?string
     {
-        return $this->img_jeu;
+        return $this->imgJeu;
     }
     public function setImgJeu(string $img_jeu): self
     {
-        $this->img_jeu = $img_jeu;
+        $this->imgJeu = $img_jeu;
         return $this;
     }
     

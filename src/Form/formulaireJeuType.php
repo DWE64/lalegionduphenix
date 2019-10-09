@@ -36,12 +36,6 @@ class formulaireJeuType extends AbstractType{
             ]
             
         ])
-        ->add('publier',SubmitType::class, [
-            'attr'=>[
-                'placeholder'=>"Publier",
-                'class'=>'btn btn-primary col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mr-2 mb-1'
-            ]
-        ])
         ;
     }
     
