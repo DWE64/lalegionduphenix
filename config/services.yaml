@@ -7,6 +7,7 @@ parameters:
      locale: 'fr'
      image_jeu: '%kernel.project_dir%/public/img/jdr'
      image_event_part: '%kernel.project_dir%/public/img/evenementParticiper'
+     image_event_orga: '%kernel.project_dir%/public/img/eventOrganise'
      image_article: '%kernel.project_dir%/public/img/article'
 services:
     # default configuration for services in *this* file
