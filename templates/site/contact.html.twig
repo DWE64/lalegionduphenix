@@ -5,47 +5,32 @@
 		
 		<div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
 		<section class="container-fluid" id="sectionContact">
-		{% block titrePage %}
-			<h1>{{ titrePage }}</h1>
-        {% endblock %}
+		     
         <div class="row justifiy-content-center">
 			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+			<h1 class="font-weight-bold font-italic text-center">Nous Contacter</h1>   
 			<div class="row">
 				<div class="col-12">
 			<aside class="container-fluid" id="coordonnee">
+				{% for lieu in tableauLieu %}
 				<div class="row justifiy-content-center my-3">
 					<div class="col-12">
 						<div class="row" id="paragrapheDescriptionContact">
-						<h1 class="col-12 mt-2 mb-3">* Maison Pour Tous D'anglet:</h1>
+						<h1 class="col-12 mt-2 mb-3">*<a href="{{ lieu.urlSite }}">{{ lieu.nom }}</a>:</h1>
 							<div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 col-12 text-center">
-								<p class="mb-0">Horaires d'ouverture: 14h-18h</p>
-								<p class="mb-0">Contact t&eacute;l&eacute;phone: 06.66.69.15.57</p>
+								<p class="mb-0">{{ lieu.adresse }}</p>
+								<p class="mb-0">{{ lieu.codePostal }} - {{ lieu.ville }}</p>
+								<p class="mb-0">Horaires d'ouverture: {{ lieu.heureDebut }}h-{{ lieu.heureFin }}h</p>
+								<p class="mb-0">Contact t&eacute;l&eacute;phone: {{ lieu.telephone }}</p>
 								<p class="mb-0">Pour acceder &agrave; notre forum, cliquez <a href="http://lalegionduphenix.forumprod.com">ici</a></p>					
 							</div>
 							<div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-12">
-								<a href="http://www.angletaccueille.com/"><img class="imf-fluid rounded" src="{{ absolute_url(asset("/img/maison-pour-tous-anglet.jpg")) }}" id="Mpd"/></a>
+								<a href="{{ lieu.urlSite }}"><img class="img-fluid rounded" src="{{ absolute_url(asset("/img/lieu/" ~ lieu.imgLieu)) }}" id="Mpd"/></a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row justify-content-center my-3">
-					<div class="col-12">
-						<div class="row" id="paragrapheDescriptionContact">
-						<h1 class="col-12 mt-2 mb-3">* Maison de la vie citoyenne Polo Beyris:</h1>
-							<div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 col-12 text-center">
-								<p class="mb-0">28 Avenue de l'Ursuya</p>
-								<p class="mb-0">64100 - BAYONNE</p>
-								<p class="mb-0">Horaires d'ouverture: 20h-2h</p>
-								<p class="mb-0">Contact t&eacute;l&eacute;phone: 06.66.69.15.57</p>
-								<p class="mb-0">Pour acceder &agrave; notre forum, cliquez <a href="http://lalegionduphenix.forumprod.com">ici</a></p>					
-							</div>
-							<div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-12">
-					<!-- <a href="https://www.mariapia.fr/"><img src="/lalegionduphenix/img/mariaPia.jpg" id="Mpd"/></a>-->
-								<a href="https://mvcpolobeyris.fr/"><img class="img-fluid rounded" src="{{ absolute_url(asset("/img/MVC.jpg")) }}"/></a>
-							</div>
-						</div>
-					</div>
-				</div>
+				{% endfor %}
 			</aside>
 			</div>			
 			<div class="col-12">

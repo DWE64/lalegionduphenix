@@ -52,9 +52,7 @@
 								<tr>
 									<th>Id_Event</th>
 									<th>titre</th>
-									<th>Th&egrave;me</th>									
-									<th>Description</th>
-									<th>Image</th>
+									<th>Th&egrave;me</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -63,12 +61,9 @@
 							{% for eventOrga in tableauObjetEvent %}
 																
 								<tr>
-									<td>{{eventOrga.id }}</td>
+									<td><a href={{ path('visualisation_eventOrga',{id: eventOrga.id})}}>{{eventOrga.id }}</a></td>
 									<td>{{eventOrga.titre }}</td>
-									<td>{{eventOrga.theme }}</td>
-									<td>{{eventOrga.description}}</td>
-									<td><img class="img-fluid rounded" src='{{ absolute_url(asset('img/eventOrganise/' ~ eventOrga.imgEventOrga)) }}' alt='{{ eventOrga.titre }}'/></td>
-									<td>
+									<td>{{eventOrga.theme }}</td><td>
 									<a href={{path('edit_eventOrga',{id: eventOrga.id})}} id="lienMenuAccueil">Editer</a>
 									|
 									<a href={{path('delete_eventOrga',{id: eventOrga.id})}} id="lienMenuAccueil" onclick="return confirm ('Etes-vous sur de vouloir supprimer cet evenement?')">Supprimer</a>

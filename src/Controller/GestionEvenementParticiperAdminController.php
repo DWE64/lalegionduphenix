@@ -6,88 +6,36 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\EvenementParticiper;
-use App\Form\ModificationEventPart;
-use App\Form\SuppressionEventPart;
 use App\Form\formulaireEventPartType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Validator\Constraints\Length;
+use App\Repository\EvenementParticiperRepository;
 
 
 class GestionEvenementParticiperAdminController extends AbstractController
 {
     /**
-     * @Route("/admin/gestionEvenementParticiper", name="gestionEvenementParticiper")
+     * @Route("/admin/gestionEventExterieur/listeEventPart", name="listage_eventPart")
+     *
      */
-    public function indexAdmin(Request $request):Response
+    public function indexAdmin(EvenementParticiperRepository $EventRepository, EntityManagerInterface $em, Request $request)
     {
-        // necessaire pour faire le tri sur l'autorisation de connexion. chercher aussi pour SUPER_ADMIN
-       $hasAccess=$this->isGranted('ROLE_ADMIN');
-       $this->denyAccessUnlessGranted('ROLE_ADMIN');
         
-       //affichage des différentes activités
-       $listeEventPart=GestionEvenementParticiperAdminController::listeEventPart();
-       
-       //formulaire d'ajout d'activité
-       
-       $eventPart=new EvenementParticiper();
-       $formNewEventPart=$this->createForm(formulaireEventPartType::class, $eventPart,[
-           'action'=>$this->generateUrl('ajout_event_part'),
-           'method'=>'POST',
-       ]);
-       
-       //formulaire de modification d'activité
-       
-       
-      $formModifEventPart=$this->createForm(ModificationEventPart::class, $eventPart,[
-           'action'=>$this->generateUrl('update_event_part'),
-           'method'=>'POST',
-       ]);
-       
-              
-       //formulaire de suppression d'activité
-       
-       
-       $formSupEventPart=$this->createForm(SuppressionEventPart::class, $eventPart,[
-           'action'=>$this->generateUrl('delete_event_part'),
-           'method'=>'POST',
-       ]);
-       
-       return  $this->render('admin/gestionEvenementParticiperAdmin.html.twig',[
-            "listeEventPart"=>$listeEventPart,
-            "formNewEventPart"=>$formNewEventPart->createView(),
-            "formModifEventPart"=>$formModifEventPart->createView(),
-            "formSupEventPart"=>$formSupEventPart->createView(),
-        ]);
-    }
-    
-    
-    
-    
-    /**
-     * 
-     * @Route("/admin/listeEventPart", name="listage_event_part")
-     */
-    
-    public function listeEventPart(){
-          $eventPart=$this->getDoctrine()->getRepository(EvenementParticiper::class)->findAll();
-                    
-          return $eventPart;
-    }
-    
-    /**
-     * @Route("/admin/ajoutEventPart", name="ajout_event_part")
-     */
-    public function newEventPart(Request $request){
-        $newEventPart=new EvenementParticiper();
-        $formulaireModif=$this->createForm(formulaireEventPartType::class, $newEventPart);
+        $hasAccess=$this->isGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         
-        $formulaireModif->handleRequest($request);
+        $objetEventPart=new EvenementParticiper();
         
-        if($formulaireModif->isSubmitted() && $formulaireModif->isValid()){
-            if($newEventPart->getImage()!=null){
-                $file=$newEventPart->getImage();
+        $formulaireEventPart=$this->createForm(formulaireEventPartType::class, $objetEventPart);
+        $formulaireEventPart->handleRequest($request);
+        
+        if($formulaireEventPart->isSubmitted() && $formulaireEventPart->isValid()){
+            
+            //ici on récupère et on stock l'image dans le dossier public correspondant au service renseigné dans le service.yaml
+            if($formulaireEventPart['image']->getData()!=null){
+                $file=$formulaireEventPart['image']->getData();
                 $filename=$this->generateUniqueFileName().'.'.$file->guessExtension();
                 
                 try{
@@ -96,91 +44,102 @@ class GestionEvenementParticiperAdminController extends AbstractController
                 }catch(FileException $e){
                     return $e;
                 }
-                
-                $newEventPart->setImgEventPart($filename);
+                $objetEventPart->setImage($formulaireEventPart['image']->getData());
+                $objetEventPart->setImgEventPart($filename);
             }
             
-            $entityManager =$this->getDoctrine()->getManager();
-            $entityManager->persist($newEventPart);
-            $entityManager->flush();
+            // action :
+            $em->persist($objetEventPart);
             
+            //envoi à la bdd
             
-            return $this->redirectToRoute('gestionEvenementParticiper');
+            $em->flush();
             
+            //message flash
+            $type='info';
+            $message='nouvel evenement extérieur créé';
+            $this->addFlash($type, $message);
+            
+            return $this->redirectToRoute("listage_eventPart");
         }
-        return $this->redirectToRoute('gestionEvenementParticiper');
+        return $this->render('admin/eventParticiper/newEventPart.html.twig', [
+            'tableauObjetEvent'=>$EventRepository->findAll(),
+            'formulaireEventPart'=>$formulaireEventPart->createView(),
+        ]);
+    }
+    /**
+     * @Route("/admin/gestionEventExterieur/eventPart/{id}/delete", name="delete_eventPart")
+     */
+    public function deleteEvent(EvenementParticiper $event, EntityManagerInterface $em){ //ici la fonction récupère l'id de l'article renseignée dans la route appelée dans le fichier twig
+        
+        //on efface le lien d'image s'il y a une image puis on supprime l'image du dossier
+        
+        if($event->getImgEventPart()!=null && $event->getImgEventPart()!=''){
+            unlink($this->getParameter('image_event_part').'/'.$event->getImgEventPart());
+        }
+        
+        //on supprime l'objet article passé en paramètre
+        $em->remove($event);
+        //on dit a la bdd d'effacer l'article en question de la base
+        $em->flush();
+        // on affiche le message de confirmation
+        $type='info';
+        $message='evenement supprimé';
+        $this->addFlash($type, $message);
+        
+        //on retourne à la liste
+        return $this->redirectToRoute('listage_eventPart');
     }
     
+    
     /**
-     * @Route("/admin/modifEventPart", name="update_event_part")
+     * @Route("/admin/gestionEventExterieur/eventPart/{id}/edition", name="edit_eventPart")
      */
-    public function updateEventPart(Request $request){
-        $dataModifEventPart=new EvenementParticiper();
-        $formulaireModif=$this->createForm(ModificationEventPart::class, $dataModifEventPart);
+    public function updateEvent(EvenementParticiper $event, EntityManagerInterface $em, Request $request){ //ici on récupère l'id passé en paramètre et la réponse au formulaire de modification
         
+        //on crée le formulaire de modif a partir du même formulaire que celui de création d'article
+        $formulaireModif=$this->createForm(formulaireEventPartType::class, $event);
         $formulaireModif->handleRequest($request);
         
         if($formulaireModif->isSubmitted() && $formulaireModif->isValid()){
-        $entityManager=$this->getDoctrine()->getManager();
-        $eventPart=$entityManager->getRepository(EvenementParticiper::class)->find($dataModifEventPart->getId());
-        
-        if(!$eventPart){
-            throw $this->createNotFoundException('aucun evenement a modifier avec cet identifiant: '.$dataModifEventPart->getId());
-        }
-        
-        if($dataModifEventPart->gettitre()!='' && $dataModifEventPart->getTitre()!=null){
-            $eventPart->setTitre($dataModifEventPart->getTitre());
-        }
-        if($dataModifEventPart->getDescription()!='' && $dataModifEventPart->getDescription()!=null){
-            $eventPart->setDescription($dataModifEventPart->getDescription());
-        }
-        if($dataModifEventPart->getImage()!=null){
-            if($eventPart->getImgEventPart()!=null && $eventPart->getImgEventPart()!=''){
-                unlink($this->getParameter('image_event_part').'/'.$eventPart->getImgEventPart());
-            }
-            $file=$dataModifEventPart->getImage();
-            $filename=$this->generateUniqueFileName().'.'.$file->guessExtension();
-            
-            try{
-                $file->move($this->getParameter('image_event_part'), $filename);
+            // on check si l'image est modifiée. si oui, on supprime le lien de l'ancienne, on supprime l'image du dossier, et on enregistre la nouvelle
+            if($formulaireModif['image']->getData()!=null){
+                if($event->getImgEventPart()!=null && $event->getImgEventPart()!=''){
+                    unlink($this->getParameter('image_event_part').'/'.$event->getImgEventPart());
+                }
+                $file=$formulaireModif['image']->getData();
+                $filename=$this->generateUniqueFileName().'.'.$file->guessExtension();
                 
-            }catch(FileException $e){
-                return $e;
-            }
-            
-            $eventPart->setImgEventPart($filename);
-            
-        }
+                try{
+                    $file->move($this->getParameter('image_event_part'), $filename);
+                    
+                }catch(FileException $e){
+                    return $e;
+                }
+                $event->setImage($formulaireModif['image']->getData());
+                $event->setImgEventPart($filename);
                 
-        $entityManager->flush();
-        
-        return $this->redirectToRoute('gestionEvenementParticiper');
+            }
+            $em->flush();
+            
+            return $this->redirectToRoute('listage_eventPart');
         }
-        return $this->redirectToRoute('gestionEvenementParticiper');
+        return $this->render('admin/eventParticiper/editEventPart.html.twig',[
+            'formulaireEdit'=>$formulaireModif->createView(),
+            'idEvent'=>$event->getId(),
+        ]);
     }
     
+    
     /**
-     * @Route("/admin/supprimerEventPart", name="delete_event_part")
+     * @Route("admin/gestionEventExterieur/eventPart/{id}", name="visualisation_eventPart")
      */
-    public function deleteEventPart(Request $request){
-        $supEventPart=new EvenementParticiper();
-        $formulaireSup=$this->createForm(SuppressionEventPart::class, $supEventPart);
-        $formulaireSup->handleRequest($request);
+    
+    public function viewEvent(EvenementParticiper $event, $id){
         
-        
-        if($formulaireSup->isSubmitted() && $formulaireSup->isValid()){
-            $entityManager=$this->getDoctrine()->getManager();
-            $event=$entityManager->getRepository(EvenementParticiper::class)->find($supEventPart->getId());
-            if(!$event){
-                throw $this->createNotFoundException('aucun evenement a supprimer avec cet identifiant: '.$supEventPart->getId());
-            }
-            unlink($this->getParameter('image_event_part').'/'.$event->getImgEventPart());
-            $entityManager->remove($event);
-            $entityManager->flush();
-            
-            return $this->redirectToRoute('gestionEvenementParticiper');
-        }
-        return $this->redirectToRoute('gestionEvenementParticiper');
+        return $this->render('admin/eventParticiper/viewEventPart.html.twig', [
+            'event'=>$event
+        ]);
         
     }
     

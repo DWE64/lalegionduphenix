@@ -9,6 +9,7 @@ parameters:
      image_event_part: '%kernel.project_dir%/public/img/evenementParticiper'
      image_event_orga: '%kernel.project_dir%/public/img/eventOrganise'
      image_article: '%kernel.project_dir%/public/img/article'
+     image_lieu: '%kernel.project_dir%/public/img/lieu'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -29,3 +30,7 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    twig.extension.loader:
+       class: Twig_Extension_StringLoader
+       tags:
+           - { name: 'twig.extension'}

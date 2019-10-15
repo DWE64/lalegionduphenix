@@ -4,17 +4,18 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ArticleRepository;
 
 class AccueilController extends AbstractController
 {
     /**
      * @Route("/accueil", name="accueil")
      */
-    public function index()
+    public function index(ArticleRepository $article)
     {
-        $message="Page Accueil";
+        
         return $this->render('site/accueil.html.twig', [
-            'titrePage' => $message,
+            'tableauObjetArticle'=>$article->findAll(),
         ]);
     }
 }

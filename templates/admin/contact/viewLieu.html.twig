@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block section %}
+
+		
+		
+        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
+		<section class="container-fluid" >
+			<h4><a href="{{ path('listeLieu') }}">Liste des lieux</a> > Lieu: "{{ lieu.nom}}"</h4>			
+        	<div class="row justifiy-content-center">
+			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+			<h1 class="font-weight-bold font-italic text-center">{{ lieu.nom }}</h1>
+			<aside class="container-fluid">
+				<div class="row">
+					<div class="col table-responsive">
+						<table class="table table-secondary table-striped table-bordered table-hover table-sm">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Informations</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Id lieu</td>
+									<td>{{lieu.id }}</td>
+									<td><a href="{{path('edit_lieu',{id: lieu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Nom</td>
+									<td>{{lieu.nom }}</td>
+									<td><a href="{{path('edit_lieu',{id: lieu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Adresse</td>
+									<td>{{ lieu.adresse}}</td>
+									<td><a href="{{path('edit_lieu',{id: lieu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Code Postale</td>
+									<td>{{ lieu.codePostal}}</td>
+									<td><a href="{{path('edit_lieu',{id: lieu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Ville</td>
+									<td>{{ lieu.ville}}</td>
+									<td><a href="{{path('edit_lieu',{id: lieu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Cr&eacute;neaux horaire</td>
+									<td>{{ lieu.heureDebut}}h - {{ lieu.heureFin }}h</td>
+									<td><a href="{{path('edit_lieu',{id: lieu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Url</td>
+									<td>{{ lieu.urlSite}}</td>
+									<td><a href="{{path('edit_lieu',{id: lieu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Telephone</td>
+									<td>{{ lieu.telephone}}</td>
+									<td><a href="{{path('edit_lieu',{id: lieu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								{% if lieu.imgLieu%}
+								<tr>
+									<td>Image Lieu</td>
+									<td><a href="{{ lieu.urlSite }}"><img class="img-fluid rounded" src='{{ absolute_url(asset('img/lieu/' ~ lieu.imgLieu)) }}' alt='{{ lieu.nom }}'/></a></td>
+									<td><a href="{{path('edit_lieu',{id: lieu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								{% endif %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</aside>
+			
+			</div>
+			<div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">
+			</div>
+		</div>
+		</section>
+		</div>
+		
+{% endblock %}
+
+
+
+

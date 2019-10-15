@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use App\Entity\Article;
 
 class formulaireArticleType extends AbstractType{
@@ -39,7 +40,7 @@ class formulaireArticleType extends AbstractType{
         ->add('image', FileType::class, [
             'required'=>true,
             'attr'=>[
-                "placeholder"=>"Photo article",
+                'placeholder'=>'Photo',
                 'class'=>'form-control col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mr-2 mb-1'
             ]
             

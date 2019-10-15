@@ -7,7 +7,8 @@
 		<section class="container-fluid" id="sectionActivite">
         <div class="row justifiy-content-center">
 			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
-			<h1 class="font-weight-bold font-italic text-center">Notre biblioth&egrave;que de jeux de r&ocirc;les</h1>
+			<h1 class="font-weight-bold font-italic text-center">Nos Activit&eacute;s</h1>
+			{% if listeJeu %}
 			<aside class="container-fluid my-3" id="asideJdr">
 			<div class="row justify-content-center">
 				<h1 class="col-12 text-left my-4">Les diff&eacute;rents jeux de r&ocirc;les propos&eacute;s :</h1>
@@ -18,17 +19,17 @@
 							<div class="card-deck col-12 mx-0">
 								<div class="card bg-light border-dark">
 								<!-- <img src="/lalegionduphenix/img/jdr/anima.jpg" id="imgJdr"/>-->
-									<img class="card-img-top" src="{{ absolute_url(asset('img/jdr/' ~ jeu.getImgJeu()))}}" alt='{{ jeu.getTitre()}}' id="imgJdr"/>
+									<img class="card-img-top" src="{{ absolute_url(asset('img/jdr/' ~ jeu.imgJeu))}}" alt='{{ jeu.titre}}' id="imgJdr"/>
 									<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
 										<h5 class="mb-0 text-center">
-											<button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ jeu.getId() }}" aria-expanded="false" aria-controles="collapse{{ jeu.getId() }}">
-												{{jeu.getTitre()}}
+											<button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ jeu.id }}" aria-expanded="false" aria-controles="collapse{{ jeu.id }}">
+												{{jeu.titre}}
 											</button>
 										</h5>
 									</div>
-									<div id="collapse{{ jeu.getId() }}" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+									<div id="collapse{{ jeu.id() }}" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
 										<div class="card-body" id="paragrapheDescription">
-											<p class="card-text">{{ jeu.getDescription()}}</p>
+											<p class="card-text">{{ jeu.description}}</p>
 										</div>
 									</div>	
 								</div>
@@ -42,6 +43,44 @@
 					</div>
 				</div>			
 			</aside>
+			{% endif %}
+			{% if listeEventOrga %}
+			<aside class="container-fluid my-3" id="asideJdr">
+			<div class="row justify-content-center">
+				<h1 class="col-12 text-left my-4">Les diff&eacute;rents &eacute;v&egrave;nements Organis&eacute;s par nos soins</h1>
+				 	<div class="col-12">
+				 	<div class="row">
+					{% for eventOrga in listeEventOrga %}
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mx-0 my-2" id="accordion">
+							<div class="card-deck col-12 mx-0">
+								<div class="card bg-light border-dark">
+								<!-- <img src="/lalegionduphenix/img/jdr/anima.jpg" id="imgJdr"/>-->
+									<img class="card-img-top" src="{{ absolute_url(asset('img/eventOrganise/' ~ eventOrga.imgEventOrga))}}" alt='{{ eventOrga.titre}}' id="imgJdr"/>
+									<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
+										<h5 class="mb-0 text-center">
+											<button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ eventOrga.id }}" aria-expanded="false" aria-controles="collapse{{ eventOrga.id() }}">
+												{{eventOrga.titre}}
+											</button>
+										</h5>
+									</div>
+									<div id="collapse{{ eventOrga.id }}" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+										<div class="card-body" id="paragrapheDescription">
+											<p class="card-text">{{ eventOrga.description}}</p>
+										</div>
+									</div>	
+								</div>
+							</div>	
+						</div>
+					
+					{% endfor %}
+					
+					
+					</div>
+					</div>
+				</div>			
+			</aside>
+			{% endif %}
+			{% if listeEventPart %}
 			<aside class="container-fluid my-3" id="asideJdr">
 			<div class="row justify-content-center">
 				<h1 class="col-12 text-left my-4">Les diff&eacute;rents &eacute;v&egrave;nements auquels nous participons :</h1>
@@ -52,17 +91,17 @@
 							<div class="card-deck col-12 mx-0">
 								<div class="card bg-light border-dark">
 								<!-- <img src="/lalegionduphenix/img/jdr/anima.jpg" id="imgJdr"/>-->
-									<img class="card-img-top" src="{{ absolute_url(asset('img/evenementParticiper/' ~ eventPart.getImgEventPart()))}}" alt='{{ eventPart.getTitre()}}' id="imgJdr"/>
+									<img class="card-img-top" src="{{ absolute_url(asset('img/evenementParticiper/' ~ eventPart.imgEventPart))}}" alt='{{ eventPart.titre}}' id="imgJdr"/>
 									<div class="card-header border border-light rounded" id="boutonDeroulantCarte">
 										<h5 class="mb-0 text-center">
-											<button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ eventPart.getId() }}" aria-expanded="false" aria-controles="collapse{{ eventPart.getId() }}">
-												{{eventPart.getTitre()}}
+											<button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ eventPart.id }}" aria-expanded="false" aria-controles="collapse{{ eventPart.id }}">
+												{{eventPart.titre}}
 											</button>
 										</h5>
 									</div>
-									<div id="collapse{{ eventPart.getId() }}" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
+									<div id="collapse{{ eventPart.id }}" class="collapse" aria-labelledby="boutonDeroulantCarte" data-parent="#accordion">			
 										<div class="card-body" id="paragrapheDescription">
-											<p class="card-text">{{ eventPart.getDescription()}}</p>
+											<p class="card-text">{{ eventPart.description}}</p>
 										</div>
 									</div>	
 								</div>
@@ -76,6 +115,7 @@
 					</div>
 				</div>			
 			</aside>
+			{% endif %}
 			</div>
 			<div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">
 			</div>

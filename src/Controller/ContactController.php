@@ -3,18 +3,21 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\LieuRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ContactController extends AbstractController
 {
     /**
      * @Route("/contact", name="contact")
      */
-    public function index()
+    public function index(LieuRepository $lieu, EntityManagerInterface $em, Request $request)
     {
-        $message="Page Contact";
+        
         return $this->render('site/contact.html.twig', [
-            'titrePage' => $message,
+            'tableauLieu' => $lieu->findAll(),
         ]);
     }
 }

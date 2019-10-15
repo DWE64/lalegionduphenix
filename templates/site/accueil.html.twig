@@ -6,63 +6,39 @@
 		
         <div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
 		<section class="container-fluid" >
-		{% block titrePage %}
-			<h1>{{ titrePage }}</h1>
-        {% endblock %}
-        <div class="row justifiy-content-center">
+		<div class="row justifiy-content-center">
 			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
-			
-			<aside class="container-fluid" id="article1">
+            {% for article in tableauObjetArticle %}
+            <aside class="container-fluid" id="article1">
 				<div class="row" id="paragrapheDescription1">
+					{% if article.imgArticle %}
+					<div class="col-12 ">
+					{% else %}
 					<div class="col-12 text-left ">
-					<h1 class="mt-2 mb-3">Pr&eacute;sentation :</h1>
-						<p class="mb-0">L'association "La L&eacute;gion Du Ph&eacute;nix", est une association <a href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=LEGITEXT000006069570">loi 1901</a> &agrave; but non lucratif, et bas&eacute;e sur Anglet (pour nous contacter c'est <a href={{"/contact"}}>ici</a>).</p>
-						<p class="mb-0">Notre activit&eacute; principale est le jeu de r&ocirc;le, dans une ambiance conviviale, dynamique, et soud&eacute;e.</p>
-					</div>
-					<div class="col-12 text-left">
-					<h1 class="mt-2 mb-3">Qu'est-ce que le "Jeu de R&ocirc;le"?</h1>
-						<h2 class="mt-2 mb-3">- <a href="http://www.ffjdr.org">Pour la f&eacute;d&eacute;ration fran&ccedil;aise de jeu de r&ocirc;le</a> :</h2>
-							<p class="mb-0">Le jeu de r&ocirc;le est une activit&eacute; de loisir et de divertissement qui consiste &agrave; raconter une histoire &agrave; plusieurs. Install&eacute;s autour d'une table, les joueurs interpr&egrave;tent le r&ocirc;le d'un personnage au sein d'un univers fictif. Chacun d&eacute;crit comment son personnage interagit avec le monde et les personnages qui l'entourent.</p>
-							<p class="mb-0">Pour plus d'informations sur la d&eacute;finition officielle, je vous invite &agrave; faire un tour sur le site de la <a href="http://www.ffjdr.org/quest-ce-que-le-jeu-de-role/">f&eacute;d&eacute;ration fran&ccedil;aise de jeu de r&ocirc;le</a>.</p> 
-						<h2 class="mt-2 mb-3">- Pour notre association :</h2>
-							<p class="mb-0">Il s'agit pour nous d'un moment o&ugrave; l'on peut se rencontrer et passer des moments entre amis, s'amuser, rigoler, et prendre du plaisir &agrave; incarner nos personnages de films, s&eacute;ries, manga, litt&eacute;rature favorie.</p>
-							<p class="mb-0">Cela nous permet aussi d'explorer de mani&egrave;re fictive, des univers aussi riches et vari&eacute;s.</p>
-							<p class="mb-0">En d&eacute;finitif, il s'agit d'un loisir o&ugrave; chacun peut s'amuser et se d&eacute;tendre en partageant aussi avec d'autres ce plaisir.</p>
+					{% endif %}
+						<h1 class="mt-2 mb-3">{{ article.titre }}</h1>
+						{% if article.sousTitre %}
+							<h2 class="mt-4 mb-3">{% include template_from_string(article.sousTitre) %}</h2>
+						    {% endif %}
+					    {% if article.imgArticle %}
+					    <div class="row">
+						<div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 col-12 text-left">
+					    {% endif %}
+                            
+							<p class="mb-0">{% include template_from_string(article.description) %}</p>
+					    {% if article.imgArticle %}
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-12">
+							<!-- <a href="http://www.angletaccueille.com/">--><img class="img-fluid rounded border border-light" src="{{ absolute_url(asset('img/article/' ~ article.imgArticle))}}" alt="{{ article.titre }}"/><!-- </a>-->
+						</div>
+						</div>
+					    {% endif %}
 					</div>
 				</div>
 			</aside>
-			<aside class="container-fluid " id="article2">
-				<div class="row my-3 ">
-				<div class="col-12">
-					<div class="row justify-content-center" id="paragrapheDescription2">
-					<h1 class="col-12 mt-2 mb-3">O&ugrave; nous retrouvons nous?</h1>
-					<div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 col-12 text-left">
-					
-						<h2 class="mt-2 mb-3">- La <a href="http://www.angletaccueille.com/">Maison Pour Tous</a> d'Anglet:</h2>
-							<p class="mb-0">Chaque samedi de 14h &agrave; 18h dans la salle "Irun" de la <a href="http://www.angletaccueille.com/">maison pour tous</a>, except&eacute; le mois d'a&ocirc;ut, o&ugrave; la <a href="http://www.angletaccueille.com/">maison pour tous</a> est ferm&eacute;e pour vacances annuelle.</p>
-							<p class="mb-0">Pour plus d'informations sur la mani&egrave;re de nous rencontrer, cliquez <a href={{"/contact"}}>ici</a></p>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-12">
-						<a href="http://www.angletaccueille.com/"><img class="img-fluid rounded border border-light" src="{{ absolute_url(asset("/img/maison-pour-tous-anglet.jpg")) }}"/></a>
-					</div>
-					</div>
-				</div>
-				</div>
-				<div class="row my-3">
-				<div>
-					<div class="row justify-content-center" id="paragrapheDescription2">
-					<div class="col-xl-8 col-lg-8 col-md-7 col-sm-12 col-12 order-xl-2 order-lg-2 order-md-2 order-sm-1 order-1 text-left">
-						<h2 class="mt-2 mb-3">- Au <a href="https://mvcpolobeyris.fr/">Maison de la vie citoyenne Polo Beyris</a> &agrave; Bayonne</h2>
-							<p class="mb-0">Chaque samedi de 20h &agrave; 2h du matin, except&eacute; le mois d'a&ocirc;ut et pendant les vacances scolaires, o&ugrave; la <a href="https://mvcpolobeyris.fr/">MVC Polo Beyris</a> est ferm&eacute;.</p>
-							<p class="mb-0">Pour plus d'informations sur la mani&egrave;re de nous rencontrer, cliquez <a href={{"/contact"}}>ici</a></p>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-5 col-sm-12 col-12 order-xl-1 order-lg-1 order-md-1 order-sm-2 order-2">
-						<a href="https://mvcpolobeyris.fr/"><img class="img-fluid rounded border border-light" src="{{ absolute_url(asset("/img/MVC.jpg")) }}" /></a>
-					</div>
-					</div>
-				</div>
-				</div>
-			</aside>
+                   
+            
+            {% endfor %}
 			</div>
 			<div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">
 			</div>

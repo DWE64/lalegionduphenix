@@ -10,7 +10,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Validator\Constraints\Length;
-use App\Form\ModificationRoleUser;
 use App\Entity\EventOrganise;
 use App\Form\formulaireEventOrgaType;
 use App\Repository\EventOrganiseRepository;
@@ -139,7 +138,7 @@ class GestionEventOrgaAdminController extends AbstractController
     
     public function viewEvent(EventOrganise $event, $id){
         
-        return $this->render('admin/eventOrga/viewEvent.html.twig', [
+        return $this->render('admin/eventOrga/viewEventOrga.html.twig', [
             'event'=>$event
         ]);
         

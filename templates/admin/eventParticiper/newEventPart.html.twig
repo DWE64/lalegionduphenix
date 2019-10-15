@@ -8,26 +8,26 @@
 		<section class="container-fluid" >			
         	<div class="row justifiy-content-center">
 			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
-			<h1 class="font-weight-bold font-italic text-center">Gestion des &Eacute;v&egrave;nements Organis&eacute;s</h1>
+			<h1 class="font-weight-bold font-italic text-center">Gestion des &Eacute;v&egrave;nements Ext&eacute;rieurs</h1>
 			<aside class="container-fluid " >
 				<!-- mettre un formulaire de modification ici en selectionnant l'id souhaité et les modification souhaitée -->
 				<div class="row justify-content-center">
 					<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-5">
-						{{ form_start(formulaireEventOrga,{'attr':{'novalidate':'novalidate','role':'form'}})}}
+						{{ form_start(formulaireEventPart,{'attr':{'novalidate':'novalidate','role':'form'}})}}
 						<div class="form-row my-2 mx-0">
 							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
 								<div class="row mx-0">
-							        {{ form_widget(formulaireEventOrga.titre) }}
+							        {{ form_widget(formulaireEventPart.titre) }}
 							    </div>
 							</div>
 							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
 								<div class="row mx-0">
-						            {{ form_widget(formulaireEventOrga.description) }}
+						            {{ form_widget(formulaireEventPart.description) }}
 						    	</div>
 							</div>
 							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
 								<div class="row mx-0">
-						            {{ form_widget(formulaireEventOrga.image) }}
+						            {{ form_widget(formulaireEventPart.image) }}
 						        </div>
 						    </div>
 						</div>
@@ -35,7 +35,7 @@
 						<button class='btn btn-primary col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mr-2 mb-1' type="submit">Valider</button>
 							
 						
-						{{ form_end(formulaireEventOrga) }}
+						{{ form_end(formulaireEventPart) }}
 					</div>
 				</div>
 			</aside>	
@@ -47,26 +47,20 @@
 								<tr>
 									<th>Id_Event</th>
 									<th>titre</th>
-									<th>Th&egrave;me</th>									
-									<th>Description</th>
-									<th>Image</th>
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
 						
-							{% for eventOrga in tableauObjetEvent %}
+							{% for eventPart in tableauObjetEvent %}
 																
 								<tr>
-									<td>{{eventOrga.id }}</td>
-									<td>{{eventOrga.titre }}</td>
-									<td>{{eventOrga.theme }}</td>
-									<td>{{eventOrga.description}}</td>
-									<td><img class="img-fluid rounded" src='{{ absolute_url(asset('img/jdr/' ~ eventOrga.imgEvent)) }}' alt='{{ eventOrga.titre }}'/></td>
+									<td><a href={{ path('visualisation_eventPart',{id: eventPart.id})}}>{{eventPart.id }}</a></td>
+									<td>{{eventPart.titre }}</td>
 									<td>
-									<a href={{path('edit_eventOrga',{id: eventOrga.id})}} id="lienMenuAccueil">Editer</a>
+									<a href={{path('edit_eventPart',{id: eventPart.id})}} id="lienMenuAccueil">Editer</a>
 									|
-									<a href={{path('delete_eventOrga',{id: eventOrga.id})}} id="lienMenuAccueil" onclick="return confirm ('Etes-vous sur de vouloir supprimer cet evenement?')">Supprimer</a>
+									<a href={{path('delete_eventPart',{id: eventPart.id})}} id="lienMenuAccueil" onclick="return confirm ('Etes-vous sur de vouloir supprimer cet evenement?')">Supprimer</a>
 									</td>																	
 								</tr>
 							{% endfor %}

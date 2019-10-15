@@ -8,7 +8,7 @@
 		<section class="container-fluid" >			
         	<div class="row justifiy-content-center">
 			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
-			<h4 class="font-weight-bold font-italic text-center"><a href="{{ path('listage_jeu') }}">Listes des jeux > </a>Edition du jeu</h1>
+			<h4 class="font-weight-bold font-italic text-center"><a href="{{ path('listage_eventPart') }}">Listes des &eacute;v&egrace;nements > </a>Edition de l'&eacute;v&egrave;nement</h4>
 			<aside class="container-fluid " >
 				<!-- mettre un formulaire de modification ici en selectionnant l'id souhaité et les modification souhaitée -->
 				<div class="row justify-content-center">
@@ -34,7 +34,7 @@
 												
 						<button class='btn btn-primary col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mr-2 mb-1' type="submit">Modifier</button>					
 						{{ form_end(formulaireEdit) }}
-						<a href={{path('delete_jeu',{id: idJeu})}} id="lienMenuAccueil" onclick="return confirm ('Etes-vous sûr de vouloir supprimer ce jeu?')">Supprimer</a>
+						<a href={{path('delete_eventPart',{id: idEvent})}} id="lienMenuAccueil" onclick="return confirm ('Etes-vous sûr de vouloir supprimer cet evenement?')">Supprimer</a>
 					</div>
 					
 				</div>

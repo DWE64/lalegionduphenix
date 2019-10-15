@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block section %}
+
+		
+		
+        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
+		<section class="container-fluid" >
+			<h4><a href="{{ path('listage_eventPart') }}">Liste d'&eacute;v&egrave;nements Ext&eacute;rieurs</a> > Nom de l'&eacute;v&egrave;nement: "{{ event.titre}}"</h4>			
+        	<div class="row justifiy-content-center">
+			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+			<h1 class="font-weight-bold font-italic text-center">{{ event.titre }}</h1>
+			<aside class="container-fluid">
+				<div class="row">
+					<div class="col table-responsive">
+						<table class="table table-secondary table-striped table-bordered table-hover table-sm">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Informations</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Id &Eacute;v&egrave;nement</td>
+									<td>{{event.id }}</td>
+									<td><a href="{{path('edit_eventPart',{id: event.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Nom &Eacute;v&egrave;nement</td>
+									<td>{{event.titre }}</td>
+									<td><a href="{{path('edit_eventPart',{id: event.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Description &eacute;v&egrave;nement</td>
+									<td>{{event.description }}</td>
+									<td><a href="{{path('edit_eventPart',{id: event.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								{% if event.imgEventPart%}
+								<tr>
+									<td>Image &eacute;v&egrave;nement</td>
+									<td><img class="img-fluid rounded" src='{{ absolute_url(asset('img/evenementParticiper/' ~ event.imgEventPart)) }}' alt='{{ event.titre }}'/></td>
+									<td><a href="{{path('edit_eventPart',{id: event.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								{% endif %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</aside>
+			
+			</div>
+			<div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">
+			</div>
+		</div>
+		</section>
+		</div>
+		
+{% endblock %}
+
+
+
+

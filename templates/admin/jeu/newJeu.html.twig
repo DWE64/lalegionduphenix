@@ -47,8 +47,6 @@
 								<tr>
 									<th>Id_Jeu</th>
 									<th>titre</th>									
-									<th>Description</th>
-									<th>Image</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -57,14 +55,11 @@
 							{% for jeu in tableauObjetJeu %}
 																
 								<tr>
-									<td>{{jeu.id }}</td>
-									<td>{{jeu.titre }}</td>
-									<td>{{jeu.description}}</td>
-									<td><img class="img-fluid rounded" src='{{ absolute_url(asset('img/jdr/' ~ jeu.imgJeu)) }}' alt='{{ jeu.titre }}'/></td>
-									<td>
-									<a href={{path('edit_jeu',{id: jeu.id})}} id="lienMenuAccueil">Editer</a>
+									<td><a href="{{ path('visualisation_jeu', {id: jeu.id}) }}">{{jeu.id }}</a></td>
+									<td>{{jeu.titre }}</td><td>
+									<a href="{{path('edit_jeu',{id: jeu.id})}}" id="lienMenuAccueil">Editer</a>
 									|
-									<a href={{path('delete_jeu',{id: jeu.id})}} id="lienMenuAccueil" onclick="return confirm ('Etes-vous sûr de vouloir supprimer cet article?')">Supprimer</a>
+									<a href="{{path('delete_jeu',{id: jeu.id})}}" id="lienMenuAccueil" onclick="return confirm ('Etes-vous sûr de vouloir supprimer cet article?')">Supprimer</a>
 									</td>																	
 								</tr>
 							{% endfor %}

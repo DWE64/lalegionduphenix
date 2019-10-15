@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block section %}
+
+		
+		
+        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
+		<section class="container-fluid" >
+			<h4><a href="{{ path('listage_jeu') }}">Liste des jeux</a> > Nom du jeu: "{{ jeu.titre}}"</h4>			
+        	<div class="row justifiy-content-center">
+			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+			<h1 class="font-weight-bold font-italic text-center">{{ jeu.titre }}</h1>
+			<aside class="container-fluid">
+				<div class="row">
+					<div class="col table-responsive">
+						<table class="table table-secondary table-striped table-bordered table-hover table-sm">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Informations</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Id Jeu</td>
+									<td>{{jeu.id }}</td>
+									<td><a href="{{path('edit_jeu',{id: jeu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Nom du jeu</td>
+									<td>{{jeu.titre}}</td>
+									<td><a href="{{path('edit_jeu',{id: jeu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								<tr>
+									<td>Description du jeu</td>
+									<td>{% include template_from_string(jeu.description)%}</td>
+									<td><a href="{{path('edit_jeu',{id: jeu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								{% if jeu.imgJeu%}
+								<tr>
+									<td>Image du jeu</td>
+									<td><img class="img-fluid rounded" src='{{ absolute_url(asset('img/jdr/' ~ jeu.imgJeu)) }}' alt='{{ jeu.titre }}'/></td>
+									<td><a href="{{path('edit_jeu',{id: jeu.id})}}" id="lienMenuAccueil">Editer</a></td>
+								</tr>
+								{% endif %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</aside>
+			
+			</div>
+			<div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">
+			</div>
+		</div>
+		</section>
+		</div>
+		
+{% endblock %}
+
+
+
+
