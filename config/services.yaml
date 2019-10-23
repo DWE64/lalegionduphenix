@@ -10,6 +10,7 @@ parameters:
      image_event_orga: '%kernel.project_dir%/public/img/eventOrganise'
      image_article: '%kernel.project_dir%/public/img/article'
      image_lieu: '%kernel.project_dir%/public/img/lieu'
+     fichier_upload: '%kernel.project_dir%/public/doc'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -34,3 +35,8 @@ services:
        class: Twig_Extension_StringLoader
        tags:
            - { name: 'twig.extension'}
+
+
+    App\Service\FileUploader:
+        arguments:
+            $repertoireCible: '%kernel.project_dir%/public/doc'

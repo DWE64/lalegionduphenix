@@ -1,0 +1,46 @@
+<html lang="fr">
+    <body >
+     
+     <div>
+     	<table>
+     		<thead>
+     			<tr>
+     				<td>Titre</td>
+     				<td>Information</td>
+     			</tr>
+     		</thead>
+     		<tbody>
+     			<tr>
+     				<td>Nom</td>
+     				<td>{{ contact.nomUtilisateur }}</td>
+     			</tr>
+     			<tr>
+     				<td>Prenom</td>
+     				<td>{{ contact.prenomUtilisateur }}</td>
+     			</tr>
+     			<tr>
+     				<td>Telephone</td>
+     				<td>{{ contact.telephone }}</td>
+     			</tr>
+     			<tr>
+     				<td>Mail</td>
+     				<td>{{ contact.mail }}</td>
+     			</tr>
+     			<tr>
+     				<td>Objet</td>
+     				<td>{{ contact.sujet }}</td>
+     			</tr>
+     			<tr>
+     				<td>Message</td>
+     				<td>{{ contact.message|nl2br }}</td>
+     			</tr>
+     			<tr>
+     			</tr>
+     		</tbody>
+     	
+     	</table>
+     
+     </div>
+     
+    </body>
+</html>

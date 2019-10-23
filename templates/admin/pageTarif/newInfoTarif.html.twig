@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block section %}
+
+		
+		
+        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
+		<section class="container-fluid" >			
+        	<div class="row justifiy-content-center">
+			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+			<h1 class="font-weight-bold font-italic text-center">Gestion des Informations de page tarif</h1>
+			<aside class="container-fluid " >
+				<!-- mettre un formulaire de modification ici en selectionnant l'id souhaité et les modification souhaitée -->
+				<div class="row justify-content-center">
+					<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-5">
+						{{ form_start(formulaireInformation,{'attr':{'novalidate':'novalidate','role':'form'}})}}
+						<div class="form-row my-2 mx-0">
+							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row mx-0">
+							        {{ form_widget(formulaireInformation.tarif) }}
+							    </div>
+							</div>
+							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row mx-0">
+							        {{ form_widget(formulaireInformation.seanceEssai) }}
+							    </div>
+							</div>
+						</div>
+												
+						<button class='btn btn-primary col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mr-2 mb-1' type="submit">Valider</button>
+							
+						
+						{{ form_end(formulaireInformation) }}
+					</div>
+					
+				</div>
+			</aside>
+			<aside class="container-fluid " >
+				<!-- mettre un formulaire de modification ici en selectionnant l'id souhaité et les modification souhaitée -->
+				<div class="row justify-content-center">
+					<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-5">
+						{{ form_start(formulaireUpload,{'attr':{'novalidate':'novalidate','role':'form'}})}}
+						<div class="form-row my-2 mx-0">
+						<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row mx-0">
+							        {{ form_widget(formulaireUpload.nomAffichage) }}
+							    </div>
+							</div>
+							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row mx-0">
+							        {{ form_widget(formulaireUpload.nomFichier) }}
+							    </div>
+							</div>
+							
+						</div>
+												
+						<button class='btn btn-primary col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mr-2 mb-1' type="submit">Upload</button>
+							
+						
+						{{ form_end(formulaireUpload) }}
+					</div>
+					
+				</div>
+			</aside>	
+			<aside class="container-fluid">
+				<div class="row">
+					<div class="col table-responsive">
+						<table class="table table-secondary table-striped table-bordered table-hover table-sm">
+							<thead>
+								<tr>
+									<th>Montant cotisation</th>
+									<th>S&eacute;ances d'essais</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+							
+							{% for info in tableauObjetInformation %}
+								
+								
+								<tr>
+									<td>{{info.tarif }}</td>
+									<td>{{ info.seanceEssai }}</td>									
+									<td>
+									<a href={{path('edit_information',{id: info.id})}} id="lienMenuAccueil">Editer</a>
+									|
+									<a href={{path('delete_information',{id: info.id})}} id="lienMenuAccueil" onclick="return confirm ('Etes-vous sûr de vouloir supprimer cet article?')">Supprimer</a>
+									</td>															
+								</tr>
+							{% endfor %}
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col table-responsive">
+						<table class="table table-secondary table-striped table-bordered table-hover table-sm">
+							<thead>
+								<tr>
+									<th>Nom de fichier</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+							
+							{% for fichier in tableauObjetFichierUpload %}
+								
+								
+								<tr>
+									<td><a href="{{absolute_url(asset('doc/' ~ fichier.nomFichier))}}">{{fichier.nomAffichage }}</a></td>
+									<td>
+									<a href={{path('delete_fichier',{id: fichier.id})}} id="lienMenuAccueil" onclick="return confirm ('Etes-vous sûr de vouloir supprimer cet article?')">Supprimer</a>
+									</td>															
+								</tr>
+							{% endfor %}
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</aside>
+			
+			</div>
+			<div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">
+			</div>
+		</div>
+		</section>
+		</div>
+		
+{% endblock %}
+
+
+
+

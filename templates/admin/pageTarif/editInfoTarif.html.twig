@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block section %}
+
+		
+		
+        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
+		<section class="container-fluid" >			
+        	<div class="row justifiy-content-center">
+			<div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+			<h4 class="font-weight-bold font-italic text-left"><a href="{{ path('listeInfoTarifs') }}">Informations page tarif > </a>Edition les informations</h4>
+			<aside class="container-fluid " >
+				<!-- mettre un formulaire de modification ici en selectionnant l'id souhaité et les modification souhaitée -->
+				<div class="row justify-content-center">
+					<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-5">
+						{{ form_start(formulaireEdit,{'attr':{'novalidate':'novalidate','role':'form'}})}}
+						<div class="form-row my-2 mx-0">
+							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row mx-0">
+							        {{ form_widget(formulaireEdit.tarif) }}
+							    </div>
+							</div>
+							<div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+								<div class="row mx-0">
+							        {{ form_widget(formulaireEdit.seanceEssai) }}
+							    </div>
+							</div>
+							
+						</div>
+												
+						<button class='btn btn-primary col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mr-2 mb-1' type="submit">Modifier</button>					
+						{{ form_end(formulaireEdit) }}
+						<a href={{path('delete_information',{id: idInformation})}} id="lienMenuAccueil" onclick="return confirm ('Etes-vous sûr de vouloir supprimer ces informations?')">Supprimer les informations</a>
+					</div>
+					
+				</div>
+			</aside>	
+						
+			</div>
+			<div class="col-xl-2 col-lg-2 col-md-12 col-sm-12">
+			</div>
+		</div>
+		</section>
+		</div>
+		
+{% endblock %}
+
+
+
+
