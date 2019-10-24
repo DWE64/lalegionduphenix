@@ -14,10 +14,10 @@ class TarifController extends AbstractController
      */
     public function index(FichierPageTarifRepository $fichierRepository, InformationPageTarifRepository $information)
     {
-        $infoRecente=$information->find(1);
+        $infoRecente=$information->getLastInfo();
        
         return $this->render('site/tarif.html.twig', [
-            'info' => $infoRecente,
+            'infoTableau' => $infoRecente,
             'objetFichier' => $fichierRepository->findAll(),
         ]);
     }

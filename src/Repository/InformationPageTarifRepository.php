@@ -47,5 +47,13 @@ class InformationPageTarifRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function getLastInfo(){
+        $connexion=$this->getEntityManager()->getConnection();
+        
+        $query=$connexion->fetchAll("SELECT * FROM `information_page_tarif` order by id DESC limit 1");
+        
+        return $query;
+    }
+    
     
 }

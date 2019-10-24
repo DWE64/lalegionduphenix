@@ -14,10 +14,10 @@
 				<div class="col-12" id="paragrapheDescriptionTarif">
 					
 					<h2 class="mt-2 mb-3">Nos tarifs:</h2>
-					
+					{% for info in infoTableau %}
 						<p class="mb-0">- Notre cotisation annuelle s'&eacute;l&egrave;ve &agrave; <strong>{{ info.tarif }}&euro;</strong> pour l'acc&egrave;s &agrave; tous nos locaux.</p>
-						<p class="mb-0">- Toute personne d&eacute;sireuse de tester nos activit&eacute;s disposera de <strong>{{ info.seanceEssai }} s&eacute;ances d'essais</strong>.</p>
-					
+						<p class="mb-0">- Toute personne d&eacute;sireuse de tester nos activit&eacute;s disposera de <strong>{{ info.seance_essai }} s&eacute;ances d'essais</strong>.</p>
+					{% endfor %}
 					</div>
 				</div>
 				<div class="row">
