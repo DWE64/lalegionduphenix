@@ -45,6 +45,11 @@ class User implements UserInterface
      */
     private $idStatutUser;
 
+    /**
+     * @ORM\Column(type="string",unique=true, length=255, nullable=true)
+     */
+    private $apiToken;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -150,6 +155,18 @@ class User implements UserInterface
     public function setIdStatutUser(?int $idStatutUser): self
     {
         $this->idStatutUser = $idStatutUser;
+
+        return $this;
+    }
+
+    public function getApiToken(): ?string
+    {
+        return $this->apiToken;
+    }
+
+    public function setApiToken(?string $apiToken): self
+    {
+        $this->apiToken = $apiToken;
 
         return $this;
     }
