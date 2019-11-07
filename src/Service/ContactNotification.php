@@ -25,6 +25,7 @@ class ContactNotification
     }
     
     public function contactNotify(Contact $contact){
+        var_dump($contact);
         
         $message = (new \Swift_Message('Nouveau message : '.$contact->getSujet()))
         ->setFrom($contact->getMail())

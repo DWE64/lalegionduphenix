@@ -7,7 +7,7 @@
      	<div class="row justify-content-center">
 			<form class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12" method="post">
 		    {% if error %}
-		    	{{  dump(error) }}
+		    	{#   dump(error) #}
 		        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}
 		        </div>
 		    {% endif %}

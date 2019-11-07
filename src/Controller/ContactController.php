@@ -24,12 +24,22 @@ class ContactController extends AbstractController
         $formContact->handleRequest($request);
         if($formContact->isSubmitted() && $formContact->isValid()){
             
+            
+            $contact->getNomUtilisateur($formContact['nomUtilisateur']->getData());
+            $contact->getPrenomUtilisateur($formContact['prenomUtilisateur']->getData());
+            $contact->getSujet($formContact['sujet']->getData());
+            $contact->getTelephone($formContact['mail']->getData());
+            $contact->getMail($formContact['mail']->getData());
+            $contact->getMessage($formContact['message']->getData());
+            
+            
+           
             $notification->contactNotify($contact);
             
-            
+           
             $type='success';
-            $messageFlash='Votre email a bien été envoyé';
-            $this->addFlash($type, $messageFlash);
+            $message='Votre email a bien ete envoye';
+            $this->addFlash($type, $message);
             
             return $this->redirectToRoute("contact");
             
